@@ -1,4 +1,5 @@
 <?php include('../utils/utilities.php'); ?>
+<?php include('../config/connection.php'); ?>
 
 <!DOCTYPE html>
 <html lang="vi">
