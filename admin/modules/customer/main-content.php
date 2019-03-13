@@ -1,4 +1,4 @@
-<main id="main" data-page-content="category">
+<main id="main" data-page-content="customer">
     <div class="container">
         <div class="row">
             <div class="col-md-3">
@@ -13,18 +13,20 @@
             <div class="col-md-9">
                 <section class="right">
                     <table class="table">
-                        <caption>Danh sách loại hàng</caption>
+                        <caption>Danh sách khách hàng đã đăng ký</caption>
                         <thead>
                             <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col">Tên loại hàng</th>
+                                <th scope="col">Tên khách hàng</th>
+                                <th scope="col">Tên đăng nhập</th>
                                 <th scope="col">Hành động</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>1</td>
-                                <td>Chocopie</td>
+                                <td>Phúc</td>
+                                <td>ngqphuc2011</td>
                                 <td>
                                     <button class="btn btn-success">
                                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>

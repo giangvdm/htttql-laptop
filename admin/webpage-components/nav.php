@@ -18,6 +18,9 @@
             <li class="nav-item">
                 <a class=" nav-link js-nav-item" href="index.php?manage=order" data-page-content="order">Quản lý đơn hàng</a>
             </li>
+            <li class="nav-item">
+                <a class=" nav-link js-nav-item" href="index.php?manage=customer" data-page-content="customer">Quản lý khách hàng</a>
+            </li>
         </div>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Bạn muốn tìm kiếm gì?" aria-label="Search">

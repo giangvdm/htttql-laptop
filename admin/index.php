@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Trang quản lý - Hệ thống Kinh doanh Máy tính xách tay</title>
+    <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="src/css/main.css">
 </head>
@@ -20,6 +21,8 @@
     <?php include('webpage-components/header.php'); ?>
 
     <!-- Main content -->
+    <script src="lib/NicEdit/nicEdit.js"></script>
+    <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
     <?php include('webpage-components/content.php'); ?>
 
     <!-- Footer -->

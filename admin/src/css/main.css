@@ -5,3 +5,13 @@
 #footer {
     background-color: #F5F5F5;
 }
+
+caption {
+    caption-side: top;
+}
+
+@media screen and (max-width: 767px) {
+    aside.left {
+        margin-bottom: 30px;
+    }
+}

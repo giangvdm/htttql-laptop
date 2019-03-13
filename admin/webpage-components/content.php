@@ -14,6 +14,9 @@
         case 'order':
             include('modules/order/main-content.php');
             break;
+        case 'customer':
+                include('modules/customer/main-content.php');
+                break;
         default:
             include('404.php');
             break;

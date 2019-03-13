@@ -9,3 +9,8 @@
             include('modules/' . $manage . '/' . 'create' . '-' . $manage . '.php');
         }
     }
+    
+    function renderAllData() {
+        $manage = isset($_GET['manage']) ? $_GET['manage'] : '';
+        include('modules/' . $manage . '/' . 'read' . '-' . $manage . '.php');
+    }
