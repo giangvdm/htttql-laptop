@@ -1,5 +1,8 @@
 <?php
-    $serverName = "DESKTOP-B238NK5";
+    // Giang's Laptop: DESKTOP-B238NK5
+    // Giang's Desktop: DESKTOP-P4LC40P
+
+    $serverName = "DESKTOP-P4LC40P";
     $username = "sa";
     $password = "12345";
     $dbName = "laptop";

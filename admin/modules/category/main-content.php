@@ -1,41 +1,12 @@
+<?php
+    require "../config/connection.php";
+?>
+
 <main id="main" data-page-content="category">
     <div class="container">
-        <!-- Error box -->
         <?php
-            if ($error = isset($_GET['error'])):
-                switch ($error) {
-                    case 'create':
-        ?>
-                        <div class="alert alert-warning alert-dismissable fade show" role="alert">
-                            Loại hàng đã tồn tại! Vui lòng nhập lại!
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-        <?php
-                        break;
-                    case 'update':
-        ?>
-                        <div class="alert alert-warning alert-dismissable fade show" role="alert">
-                            Có lỗi xảy ra! Dữ liệu không được cập nhật!
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-        <?php
-                        break;
-                    case 'delete':
-        ?>
-                        <div class="alert alert-warning alert-dismissable fade show" role="alert">
-                            Có lỗi xảy ra! Dữ liệu không được xóa!
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-        <?php
-                        break;
-                }
-            endif;
+            // Alert boxes
+            include('webpage-components/alert-box.php');
         ?>
 
         <div class="row">
@@ -48,6 +19,12 @@
                     ?>
                 </aside>
             </div>
+
+            <?php
+                // Select all categories in databse
+                $sqlReadAllCategories = "SELECT * FROM dbo.category ORDER BY category_name ASC";
+                $allCategories = sqlsrv_query( $conn, $sqlReadAllCategories);
+            ?>
             <div class="col-md-9">
                 <section class="right">
                     <table class="table">
@@ -60,9 +37,28 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                
-                            </tr>
+                            <!-- Show all categories -->
+                            <?php
+                                $i = 0;
+                                while ($category = sqlsrv_fetch_array($allCategories)) {
+                            ?>
+                                    <tr>
+                                        <td><?php echo $category['category_id'] ?></td>
+                                        <td><?php echo $category['category_name']; ?></td>
+                                        <td>
+                                            <button class="btn btn-success"
+                                                    onclick="window.location.href='index.php?manage=category&action=update&id= <?php echo $category['category_id']; ?> '">
+                                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                            </button>
+                                            <button class="btn btn-danger"
+                                                    onclick="return confirm('Bạn có chắc muốn xóa bản ghi này?'); href='modulesprocess.php?manage=category&action=delete&id= <?php echo $category['category_id']; ?> '">
+                                                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                            <?php
+                                }
+                            ?>
                         </tbody>
                     </table>
                 </section>
