@@ -1,5 +1,43 @@
 <main id="main" data-page-content="category">
     <div class="container">
+        <!-- Error box -->
+        <?php
+            if ($error = isset($_GET['error'])):
+                switch ($error) {
+                    case 'create':
+        ?>
+                        <div class="alert alert-warning alert-dismissable fade show" role="alert">
+                            Loại hàng đã tồn tại! Vui lòng nhập lại!
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+        <?php
+                        break;
+                    case 'update':
+        ?>
+                        <div class="alert alert-warning alert-dismissable fade show" role="alert">
+                            Có lỗi xảy ra! Dữ liệu không được cập nhật!
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+        <?php
+                        break;
+                    case 'delete':
+        ?>
+                        <div class="alert alert-warning alert-dismissable fade show" role="alert">
+                            Có lỗi xảy ra! Dữ liệu không được xóa!
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+        <?php
+                        break;
+                }
+            endif;
+        ?>
+
         <div class="row">
             <div class="col-md-3">
                 <aside class="left">
@@ -23,16 +61,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>1</td>
-                                <td>Chocopie</td>
-                                <td>
-                                    <button class="btn btn-success">
-                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                    </button>
-                                    <button class="btn btn-danger">
-                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                    </button>
-                                </td>
+                                
                             </tr>
                         </tbody>
                     </table>
