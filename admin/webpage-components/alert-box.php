@@ -1,7 +1,8 @@
 <!-- Alert boxes -->
 <?php
     // Errors
-    if ($error = isset($_GET['error'])):
+    if (isset($_GET['error'])):
+        $error = $_GET['error'];
         switch ($error) {
             case 'create':
 ?>
@@ -39,8 +40,9 @@
 
 <?php
     // Success
-    if ($error = isset($_GET['success'])):
-        switch ($error) {
+    if ($success = isset($_GET['success'])):
+        $success = $_GET['success'];
+        switch ($success) {
             case 'create':
 ?>
                 <div class="alert alert-success alert-dismissable fade show" role="alert">

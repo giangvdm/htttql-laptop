@@ -15,3 +15,8 @@ caption {
         margin-bottom: 30px;
     }
 }
+
+img.product-img {
+    max-width: 240px;
+    height: auto;
+}

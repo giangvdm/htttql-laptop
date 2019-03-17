@@ -13,7 +13,7 @@
             <div class="col-md-3">
                 <aside class="left">
                     <?php
-                        echo "<b>Thêm nhà sản xuất mới</b>";
+                        echo "<b>Thêm loại hàng mới</b>";
                         echo "<hr>";
                         renderAside();
                     ?>
@@ -51,7 +51,7 @@
                                                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                             </button>
                                             <button class="btn btn-danger"
-                                                    onclick="return confirm('Bạn có chắc muốn xóa bản ghi này?'); href='modulesprocess.php?manage=category&action=delete&id= <?php echo $category['category_id']; ?> '">
+                                                    onclick="window.location.href='modules/category/delete-category.php?id= <?php echo $category['category_id']; ?> '">
                                                 <i class="fa fa-trash-o" aria-hidden="true"></i>
                                             </button>
                                         </td>
