@@ -7,6 +7,9 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav mr-auto">
             <li class="nav-item">
+                <a class=" nav-link js-nav-item" href="index.php?manage=stock" data-page-content="category">Quản lý kho</a>
+            </li>
+            <li class="nav-item">
                 <a class=" nav-link js-nav-item" href="index.php?manage=category" data-page-content="category">Quản lý loại hàng</a>
             </li>
             <li class="nav-item">

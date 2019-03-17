@@ -1,6 +1,10 @@
 <?php
     require "../config/connection.php";
 
+    // Select all stocks in databse
+    $sqlReadAllStocks = "SELECT * FROM dbo.stock ORDER BY stock_name ASC";
+    $allStocks = sqlsrv_query( $conn, $sqlReadAllStocks);
+
     // Select all categories in databse
     $sqlReadAllCategories = "SELECT * FROM dbo.category ORDER BY category_name ASC";
     $allCategories = sqlsrv_query( $conn, $sqlReadAllCategories);
@@ -10,7 +14,20 @@
     $allBrands = sqlsrv_query( $conn, $sqlReadAllBrands);
 ?>
 
-<form action="modules/product/process.php" method="POST">
+<form action="modules/product/process.php" method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="product-stock-input">Kho</label>
+        <select class="form-control" name="product-stock" id="product-stock-input">
+            <?php
+                $i = 0;
+                while ($stock = sqlsrv_fetch_array($allStocks)) {
+            ?>
+                    <option value="<?php echo $stock['stock_id']; ?>"><?php echo $stock['stock_name']; ?></option>
+            <?php
+                }
+            ?>
+        </select>
+    </div>
     <div class="form-group">
         <label for="product-name-input">Tên sản phẩm</label>
         <input type="text" class="form-control" name="product-name" id="product-name-input" required>
@@ -22,9 +39,9 @@
                 $i = 0;
                 while ($category = sqlsrv_fetch_array($allCategories)) {
             ?>
-                    <option value="<?php echo $category['brand-name']; ?>"><?php echo $category['category_name']; ?></option>
+                    <option value="<?php echo $category['category_id']; ?>"><?php echo $category['category_name']; ?></option>
             <?php
-                } 
+                }
             ?>
         </select>
     </div>
@@ -35,7 +52,7 @@
                 $i = 0;
                 while ($brand = sqlsrv_fetch_array($allBrands)) {
             ?>
-                    <option value="<?php echo $brand['brand-name']; ?>"><?php echo $brand['brand_name']; ?></option>
+                    <option value="<?php echo $brand['brand_id']; ?>"><?php echo $brand['brand_name']; ?></option>
             <?php
                 }
             ?>
@@ -53,5 +70,9 @@
         <label for="product-img-input">Hình ảnh sản phẩm</label>
         <input type="file" class="form-control-file" name="product-img" id="product-img-input" accept="image/*" required>
     </div>
-    <input type="submit" class="btn btn-info" name="add" value="Thêm">
+    <div class="form-group">
+        <label for="product-quantity-input">Số lượng</label>
+        <input type="number" min="0" class="form-control" name="product-quantity" id="product-quantity-input" required>  
+    </div>
+    <input type="submit" class="btn btn-info" name="create" value="Thêm">
 </form>
