@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!-- Header -->
 
 <header class="header">
@@ -25,13 +29,26 @@
                                 <li class="js-nav-item" data-page-content="contact">
                                     <a href="contact.php">Liên hệ</a>
                                 </li>
-                                <li class="hassubs js-nav-item" data-page-content="account">
-                                    <a href="#">Tài khoản</a>
-                                    <ul>
-                                        <li><a href="login.php">Đăng nhập</a></li>
-                                        <li><a href="register.php">Đăng ký</a></li>
-                                    </ul>
-                                </li>
+                                <?php
+                                    if (isset($_SESSION['customer-name'])) {
+                                ?>
+                                     <li class="js-nav-item" data-page-content="account">
+                                        <a href="logout.php">Đăng xuất</a>
+                                    </li>
+                                <?php
+                                    }
+                                    else {
+                                ?>
+                                        <li class="hassubs js-nav-item" data-page-content="account">
+                                            <a href="#">Tài khoản</a>
+                                            <ul>
+                                                <li><a href="login.php">Đăng nhập</a></li>
+                                                <li><a href="register.php">Đăng ký</a></li>
+                                            </ul>
+                                        </li>
+                                <?php
+                                    }
+                                ?>
                             </ul>
                         </nav>
                         <div class="header_extra ml-auto">
@@ -101,6 +118,25 @@
                 <li class="page_menu_item menu_mm">
                     <a href="contact.php">Liên hệ</a>
                 </li>
+                <?php
+                    if (isset($_SESSION['customer-name'])) {
+                ?>
+                    <li class="page_menu_item menu_mm">
+                        <a href="logout.php">Đăng xuất</a>
+                    </li>
+                <?php
+                    }
+                    else {
+                ?>
+                    <li class="page_menu_item menu_mm">
+                        <a href="register.php">Đăng ký</a>
+                    </li>
+                    <li class="page_menu_item menu_mm">
+                        <a href="login.php">Đăng nhập</a>
+                    </li>
+                <?php
+                    }
+                ?>
             </ul>
         </div>
     </div>

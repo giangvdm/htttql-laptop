@@ -1,8 +1,40 @@
+<?php
+    // session_start();
+
+    if (isset($_POST['login'])) {
+        require 'config/connection.php';
+    
+        $sqlGetCustomerByName = "SELECT * FROM dbo.customer WHERE customer_name = ?";
+        $params = array($name);
+        $stmt = sqlsrv_query($conn, $sqlGetCustomerByName, $params);
+        $customer = sqlsrv_fetch_array($stmt);
+    
+        $tmpPass = $customer['customer_password'];
+        if ($pass === $tmpPass) {
+            $isLoggedIn = true;
+        }
+        else {
+            // header('location:login.php?error=login');
+        }
+    
+        if ($isLoggedIn) {
+            session_start();
+            $_SESSION['customer-name'] = $customer['customer_name'];
+            $_SESSION['customer-email'] = $customer['customer_email'];
+            $_SESSION['customer-address'] = $customer['customer_address'];
+            
+            header('location:index.php?success=login');
+        }
+    
+        sqlsrv_close();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="vi">
 
 <head>
-	<title>Đăng ký - Laptop 69</title>
+	<title>Đăng nhập - Laptop 69</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="description" content="Sublime project">
@@ -33,7 +65,7 @@
 									<div class="breadcrumbs">
 										<ul>
 											<li><a href="index.php">Trang chủ</a></li>
-											<li>Đăng ký</li>
+											<li>Đăng nhập</li>
 										</ul>
 									</div>
 								</div>
@@ -44,7 +76,7 @@
 			</div>
 		</div>
 
-		<!-- Main content: Register form -->
+		<!-- Main content: Login form -->
 
 		<main class="contact" id="main" data-page-content="account">
 			<div class="container">
@@ -53,8 +85,8 @@
 					<!-- Get in touch -->
 					<div class="col-lg-12 contact_col">
 						<div class="get_in_touch">
-							<div class="section_title">Đăng ký tài khoản mới</div>
-							<div class="section_subtitle">Qúy khách vui lòng nhập đầy đủ thông tin vào mẫu dưới đây</div>
+							<div class="section_title">Đăng nhập</div>
+							<div class="section_subtitle">Đăng nhập vào tài khoản thành viên để bắt đầu mua hàng</div>
 							<div class="contact_form_container">
 								<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="contact_form" class="contact_form" method="POST">
 									<div class="row">
@@ -66,28 +98,12 @@
 									</div>
 									<div class="row">
 										<div class="col-lg-12">
-											<!-- Email -->
-											<label for="customer-email-input">Email</label>
-											<input type="email" name="customer-email" id="customer-email-input" class="contact_input" required="required">
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-lg-6">
 											<!-- Password -->
 											<label for="customer-password-input">Mật khẩu</label>
 											<input type="password" name="customer-password" id="customer-password-input" class="contact_input" required="required">
 										</div>
-										<div class="col-lg-6">
-											<!-- Password -->
-											<label for="customer-name-input">Nhập lại mật khẩu</label>
-											<input type="password" name="customer-name" id="customer-name-input" class="contact_input" required="required">
-										</div>
 									</div>
-									<div>
-										<label for="customer-address">Địa chỉ</label>
-										<textarea name="customer-address" id="customer-address" class="contact_input customer-address" required="required"></textarea>
-									</div>
-									<button type="submit" name="register" class="button contact_button"><span>Đăng ký</span></button>
+									<button type="submit" name="login" class="button contact_button"><span>Đăng nhập</span></button>
 								</form>
 							</div>
 						</div>
