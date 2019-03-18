@@ -17,13 +17,37 @@
                                     <a href="index.php">Trang chủ</a>
                                 </li>
                                 <li class="hassubs" data-page-content="category">
-                                    <a href="categories.html">Danh mục</a>
+                                    <a href="#">Danh mục</a>
                                     <ul>
-                                        <li><a href="categories.html">Category</a></li>
-                                        <li><a href="categories.html">Category</a></li>
-                                        <li><a href="categories.html">Category</a></li>
-                                        <li><a href="categories.html">Category</a></li>
-                                        <li><a href="categories.html">Category</a></li>
+                                        <?php
+                                            require 'config/connection.php';
+                                            // Select all categories in databse
+                                            $sqlReadAllCategories = "SELECT * FROM dbo.category ORDER BY category_name ASC";
+                                            $allCategories = sqlsrv_query( $conn, $sqlReadAllCategories);
+                                            $i = 0;
+                                            while ($category = sqlsrv_fetch_array($allCategories)) {
+                                        ?>
+                                            <li><a href="product-list.php?category=<?php echo $category['category_id']; ?>"><?php echo $category['category_name']; ?></a></li>
+                                        <?php
+                                            }
+                                        ?>
+                                    </ul>
+                                </li>
+                                <li class="hassubs" data-page-content="brand">
+                                    <a href="#">Thương hiệu</a>
+                                    <ul>
+                                        <?php
+                                            require 'config/connection.php';
+                                            // Select all categories in databse
+                                            $sqlReadAllBrands = "SELECT * FROM dbo.brand ORDER BY brand_name ASC";
+                                            $allBrands = sqlsrv_query( $conn, $sqlReadAllBrands);
+                                            $i = 0;
+                                            while ($brand = sqlsrv_fetch_array($allBrands)) {
+                                        ?>
+                                            <li><a href="product-list.php?brand=<?php echo $brand['brand_id']; ?>"><?php echo $brand['brand_name']; ?></a></li>
+                                        <?php
+                                            }
+                                        ?>
                                     </ul>
                                 </li>
                                 <li class="js-nav-item" data-page-content="contact">

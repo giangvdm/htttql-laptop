@@ -1,8 +1,11 @@
 <?php
-    // session_start();
+    session_start();
 
     if (isset($_POST['login'])) {
-        require 'config/connection.php';
+		require 'config/connection.php';
+		
+		$name = $_POST['customer-name'];
+		$pass = $_POST['customer-password'];
     
         $sqlGetCustomerByName = "SELECT * FROM dbo.customer WHERE customer_name = ?";
         $params = array($name);
@@ -14,16 +17,16 @@
             $isLoggedIn = true;
         }
         else {
-            // header('location:login.php?error=login');
+            header('location:login.php?error=login');
         }
     
         if ($isLoggedIn) {
-            session_start();
+			session_start();
             $_SESSION['customer-name'] = $customer['customer_name'];
             $_SESSION['customer-email'] = $customer['customer_email'];
             $_SESSION['customer-address'] = $customer['customer_address'];
             
-            header('location:index.php?success=login');
+            header('location:index.php');
         }
     
         sqlsrv_close();
