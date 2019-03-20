@@ -1,5 +1,15 @@
 <?php
     session_start();
+    require 'config/connection.php';
+    // Select all categories in databse
+    $sqlReadAllCategories = "SELECT * FROM dbo.category ORDER BY category_name ASC";
+    $allCategories = sqlsrv_query( $conn, $sqlReadAllCategories);
+    $mobile__allCategories = sqlsrv_query( $conn, $sqlReadAllCategories);
+
+    // Select all categories in databse
+    $sqlReadAllBrands = "SELECT * FROM dbo.brand ORDER BY brand_name ASC";
+    $allBrands = sqlsrv_query( $conn, $sqlReadAllBrands);
+    $mobile__allBrands = sqlsrv_query( $conn, $sqlReadAllBrands);
 ?>
 
 <!-- Header -->
@@ -20,11 +30,7 @@
                                     <a href="#">Danh mục</a>
                                     <ul>
                                         <?php
-                                            require 'config/connection.php';
-                                            // Select all categories in databse
-                                            $sqlReadAllCategories = "SELECT * FROM dbo.category ORDER BY category_name ASC";
-                                            $allCategories = sqlsrv_query( $conn, $sqlReadAllCategories);
-                                            $i = 0;
+                                            
                                             while ($category = sqlsrv_fetch_array($allCategories)) {
                                         ?>
                                             <li><a href="product-list.php?category=<?php echo $category['category_id']; ?>"><?php echo $category['category_name']; ?></a></li>
@@ -37,11 +43,8 @@
                                     <a href="#">Thương hiệu</a>
                                     <ul>
                                         <?php
-                                            require 'config/connection.php';
+                                            // require 'config/connection.php';
                                             // Select all categories in databse
-                                            $sqlReadAllBrands = "SELECT * FROM dbo.brand ORDER BY brand_name ASC";
-                                            $allBrands = sqlsrv_query( $conn, $sqlReadAllBrands);
-                                            $i = 0;
                                             while ($brand = sqlsrv_fetch_array($allBrands)) {
                                         ?>
                                             <li><a href="product-list.php?brand=<?php echo $brand['brand_id']; ?>"><?php echo $brand['brand_name']; ?></a></li>
@@ -131,15 +134,38 @@
                     <a href="index.html">Trang chủ</a>
                 </li>
                 <li class="page_menu_item has-children menu_mm" data-page-content="category">
-                    <a href="categories.html">Danh mục<i class="fa fa-angle-down"></i></a>
+                    <a href="#">Danh mục<i class="fa fa-angle-down"></i></a>
                     <ul class="page_menu_selection menu_mm">
-                        <li class="page_menu_item menu_mm"><a href="categories.html">Category<i class="fa fa-angle-down"></i></a></li>
-                        <li class="page_menu_item menu_mm"><a href="categories.html">Category<i class="fa fa-angle-down"></i></a></li>
-                        <li class="page_menu_item menu_mm"><a href="categories.html">Category<i class="fa fa-angle-down"></i></a></li>
-                        <li class="page_menu_item menu_mm"><a href="categories.html">Category<i class="fa fa-angle-down"></i></a></li>
+                        <?php
+                            while ($mobile__category = sqlsrv_fetch_array($mobile__allCategories)) {
+                        ?>
+                            <li class="page_menu_item menu_mm">
+                                <a href="product-list.php?category=<?php echo $mobile__category['category_id']; ?>">
+                                <?php echo $mobile__category['category_name']; ?>
+                                </a>
+                            </li>
+                        <?php
+                            }
+                        ?>
                     </ul>
                 </li>
-                <li class="page_menu_item menu_mm">
+                <li class="page_menu_item has-children menu_mm" data-page-content="category">
+                    <a href="#">Thương hiệu<i class="fa fa-angle-down"></i></a>
+                    <ul class="page_menu_selection menu_mm">
+                        <?php
+                            while ($mobile__brand = sqlsrv_fetch_array($mobile__allBrands)) {
+                        ?>
+                            <li class="page_menu_item menu_mm">
+                                <a href="product-list.php?brand=<?php echo $mobile__brand['brand_id']; ?>">
+                                <?php echo $mobile__brand['brand_name']; ?>
+                                </a>
+                            </li>
+                        <?php
+                            }
+                        ?>
+                    </ul>
+                </li>
+                <li class="page_menu_item menu_mm" data-page-content="contact">
                     <a href="contact.php">Liên hệ</a>
                 </li>
                 <?php

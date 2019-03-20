@@ -1,3 +1,24 @@
+<?php
+	if (isset($_POST['register'])) {
+		require 'config/connection.php';
+
+		$name = $_POST['customer-name'];
+		$email = $_POST['customer-email'];
+		$pass = $_POST['customer-password'];
+		$address = $_POST['customer-address'];
+
+		$sqlInsertCustomer = "INSERT INTO dbo.customer 
+								(customer_name, customer_email, customer_password, customer_address)
+								VALUES (?,?,?,?)";
+		$params = array($name, $email, $pass, $address);
+		$stmt = sqlsrv_query( $conn, $sqlInsertCustomer, $params);
+		if ($stmt === false) {
+			die(print_r(sqlsrv_errors(), true));
+		}
+		header('location:login.php');
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="vi">
 

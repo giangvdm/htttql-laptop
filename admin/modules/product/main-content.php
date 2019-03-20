@@ -3,14 +3,14 @@
 ?>
 
 <main id="main" data-page-content="product">
-    <div class="container">
+    <div class="container-fluid">
         <?php
             // Alert boxes
             include('webpage-components/alert-box.php');
         ?>
 
         <div class="row">
-            <div class="col-md-6">
+            <div class="offset-md-3 col-md-6">
                 <section>
                     <?php
                         echo "<b>Thêm sản phẩm mới</b>";
@@ -41,6 +41,8 @@
                             <th scope="col">Gía sản phẩm</th>
                             <th scope="col">Mô tả sản phẩm</th>
                             <th scope="col">Hình ảnh sản phẩm</th>
+                            <th scope="col">Kho</th>
+                            <th scope="col">Số lượng</th>
                             <th scope="col">Hành động</th>
                         </tr>
                     </thead>
@@ -74,6 +76,16 @@
                                     <td><?php echo $product['product_price']; ?></td>
                                     <td><?php echo $product['product_desc']; ?></td>
                                     <td><img class="product-img" src="../<?php echo $product['product_img']; ?>"/></td>
+                                    <td>
+                                        <?php
+                                            $sqlReadStockById = "SELECT * FROM dbo.stock WHERE stock_id = ?";
+                                            $params = array($product['stock_id']);
+                                            $stmt = sqlsrv_query( $conn, $sqlReadStockById, $params);
+                                            $stock = sqlsrv_fetch_array($stmt);
+                                            echo $stock['stock_name'];
+                                        ?>
+                                    </td>
+                                    <td><?php echo $product['product_quantity']; ?></td>
                                     <td>
                                         <button class="btn btn-success"
                                                 onclick="window.location.href='index.php?manage=product&action=update&id= <?php echo $product['product_id']; ?> '">

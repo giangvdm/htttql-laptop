@@ -1,8 +1,10 @@
 <?php
     // Giang's Laptop: DESKTOP-B238NK5
     // Giang's Desktop: DESKTOP-P4LC40P
+    // Phuc's Laptop: DESKTOP-ATUH7UU
+    // Khanh's Laptop: DESKTOP-9P63LEP\SQLSERVER2017
 
-    $serverName = "DESKTOP-P4LC40P";
+    $serverName = "DESKTOP-B238NK5";
     $username = "sa";
     $password = "12345";
     $dbName = "laptop";

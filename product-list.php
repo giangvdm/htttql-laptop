@@ -51,18 +51,18 @@
 		<?php
 			require 'config/connection.php';
 
-			if(isset($_GET['category'])) $category = $_GET['category'];
-			if(isset($_GET['brand'])) $brand = $_GET['brand'];
+			if(isset($_GET['category'])) $cat = $_GET['category'];
+			if(isset($_GET['brand'])) $br = $_GET['brand'];
 
 			$sqlGetProductsByFilter = "SELECT * FROM dbo.product WHERE";
 			$params = array();
-			if (isset($category)) {
+			if (isset($cat)) {
 				$sqlGetProductsByFilter = $sqlGetProductsByFilter . " category_id = ?";
-				array_push($params, $category);
+				array_push($params, $cat);
 			}
-			if (isset($brand)) {
-				$sqlGetProductsByFilter = $sqlGetProductsByFilter . " barnd_id = ?";
-				array_push($params, $brand);
+			if (isset($br)) {
+				$sqlGetProductsByFilter = $sqlGetProductsByFilter . " brand_id = ?";
+				array_push($params, $br);
 			}
 			$filteredProducts = sqlsrv_query( $conn, $sqlGetProductsByFilter, $params);
 		?>
@@ -77,8 +77,8 @@
 							<div class="results">
 								Đang hiển thị <span>
 								<?php 
-									$numOfRows = sqlsrv_num_rows($filteredProducts);
-									echo $numOfRows;
+									// $numOfRows = sqlsrv_num_rows($filteredProducts);
+									// echo $numOfRows;
 								?>
 								</span> sản phẩm
 							</div>
