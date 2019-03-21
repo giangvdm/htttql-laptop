@@ -4,7 +4,7 @@
     // Phuc's Laptop: DESKTOP-ATUH7UU
     // Khanh's Laptop: DESKTOP-9P63LEP\SQLSERVER2017
 
-    $serverName = "DESKTOP-B238NK5";
+    $serverName = "DESKTOP-P4LC40P";
     $username = "sa";
     $password = "12345";
     $dbName = "laptop";

@@ -20,7 +20,7 @@
             <div class="row">
                 <div class="col">
                     <div class="header_content d-flex flex-row align-items-center justify-content-start">
-                        <div class="logo"><a href="#">Laptop 69</a></div>
+                        <div class="logo"><a href="index.php">Laptop 69</a></div>
                         <nav class="main_nav">
                             <ul>
                                 <li class="js-nav-item" data-page-content="home">
@@ -33,7 +33,7 @@
                                             
                                             while ($category = sqlsrv_fetch_array($allCategories)) {
                                         ?>
-                                            <li><a href="product-list.php?category=<?php echo $category['category_id']; ?>"><?php echo $category['category_name']; ?></a></li>
+                                            <li><a href="product-list.php?category=<?php echo $category['category_name']; ?>"><?php echo $category['category_name']; ?></a></li>
                                         <?php
                                             }
                                         ?>
@@ -47,7 +47,7 @@
                                             // Select all categories in databse
                                             while ($brand = sqlsrv_fetch_array($allBrands)) {
                                         ?>
-                                            <li><a href="product-list.php?brand=<?php echo $brand['brand_id']; ?>"><?php echo $brand['brand_name']; ?></a></li>
+                                            <li><a href="product-list.php?brand=<?php echo $brand['brand_name']; ?>"><?php echo $brand['brand_name']; ?></a></li>
                                         <?php
                                             }
                                         ?>

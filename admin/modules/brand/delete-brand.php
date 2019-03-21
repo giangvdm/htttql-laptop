@@ -5,9 +5,11 @@
     $params = array($_GET['id']);
     $stmt = sqlsrv_query( $conn, $sqlDeleteBrandById, $params);
     if ($stmt === false) {
-        die(print_r(sqlsrv_errors(), true));
+        header('location:../../index.php?manage=brand&error=delete');
     }
-    header('location:../../index.php?manage=brand&success=delete');
+    else {
+        header('location:../../index.php?manage=brand&success=delete');
+    }
 
     // close connection
     sqlsrv_close($conn);

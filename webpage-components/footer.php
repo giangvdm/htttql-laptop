@@ -9,8 +9,7 @@
                     <div class="copyright ml-auto mr-auto">
                         Copyright &copy;<script>
                             document.write(new Date().getFullYear());
-                        </script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by
-                        <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                        </script> Mọi quyền được bảo vệ | Web được xây dựng bởi <a href="https://colorlib.com" target="_blank">Colorlib</a>
                     </div>
                     <div class="footer_social ml-lg-auto">
                         <ul>

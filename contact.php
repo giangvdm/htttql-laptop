@@ -53,32 +53,32 @@
 					<!-- Get in touch -->
 					<div class="col-lg-8 contact_col">
 						<div class="get_in_touch">
-							<div class="section_title">Get in Touch</div>
-							<div class="section_subtitle">Say hello</div>
+							<div class="section_title">Liên hệ</div>
+							<div class="section_subtitle">Gửi tin nhắn cho chúng tôi</div>
 							<div class="contact_form_container">
 								<form action="#" id="contact_form" class="contact_form">
 									<div class="row">
 										<div class="col-xl-6">
 											<!-- Name -->
-											<label for="contact_name">First Name*</label>
+											<label for="contact_name">Họ*</label>
 											<input type="text" id="contact_name" class="contact_input" required="required">
 										</div>
 										<div class="col-xl-6 last_name_col">
 											<!-- Last Name -->
-											<label for="contact_last_name">Last Name*</label>
+											<label for="contact_last_name">Tên*</label>
 											<input type="text" id="contact_last_name" class="contact_input" required="required">
 										</div>
 									</div>
 									<div>
 										<!-- Subject -->
-										<label for="contact_company">Subject</label>
+										<label for="contact_company">Chủ đè</label>
 										<input type="text" id="contact_company" class="contact_input">
 									</div>
 									<div>
-										<label for="contact_textarea">Message*</label>
+										<label for="contact_textarea">Nội dung thông điệp*</label>
 										<textarea id="contact_textarea" class="contact_input contact_textarea" required="required"></textarea>
 									</div>
-									<button class="button contact_button"><span>Send Message</span></button>
+									<button class="button contact_button"><span>Gửi</span></button>
 								</form>
 							</div>
 						</div>
@@ -88,23 +88,23 @@
 					<div class="col-lg-3 offset-xl-1 contact_col">
 						<div class="contact_info">
 							<div class="contact_info_section">
-								<div class="contact_info_title">Marketing</div>
+								<div class="contact_info_title">Bộ phận Marketing</div>
 								<ul>
-									<li>Phone: <span>+53 345 7953 3245</span></li>
+									<li>Điện thoại: <span>+53 345 7953 3245</span></li>
 									<li>Email: <span>yourmail@gmail.com</span></li>
 								</ul>
 							</div>
 							<div class="contact_info_section">
-								<div class="contact_info_title">Shippiing & Returns</div>
+								<div class="contact_info_title">Bộ phận giao hàng, đổi trả và bảo hành</div>
 								<ul>
-									<li>Phone: <span>+53 345 7953 3245</span></li>
+									<li>Điện thoại: <span>+53 345 7953 3245</span></li>
 									<li>Email: <span>yourmail@gmail.com</span></li>
 								</ul>
 							</div>
 							<div class="contact_info_section">
-								<div class="contact_info_title">Information</div>
+								<div class="contact_info_title">Bộ phận tư vấn, thông tin chung</div>
 								<ul>
-									<li>Phone: <span>+53 345 7953 3245</span></li>
+									<li>Điện thoại: <span>+53 345 7953 3245</span></li>
 									<li>Email: <span>yourmail@gmail.com</span></li>
 								</ul>
 							</div>

@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="src/lib/OwlCarousel2-2.2.1/animate.css">
 	<link rel="stylesheet" type="text/css" href="src/css/product.css">
 	<link rel="stylesheet" type="text/css" href="src/css/product_responsive.css">
+	<link rel="stylesheet" type="text/css" href="src/css/helper.css">
 </head>
 
 <body>
@@ -41,7 +42,17 @@
 						<div class="row">
 							<div class="col">
 								<div class="home_content">
-									<div class="home_title">Smart Phones<span>.</span></div>
+									<div class="home_title">
+										Laptop
+										<?php
+											$sqlReadBrandById = "SELECT * FROM dbo.brand WHERE brand_id = ?";
+											$params = array($currentProduct['brand_id']);
+											$stmt = sqlsrv_query( $conn, $sqlReadBrandById, $params);
+											$brand = sqlsrv_fetch_array($stmt);
+											echo $brand['brand_name'];
+										?>
+										<span>.</span>
+									</div>
 									<div class="home_text">
 										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie eros.
 											Sed viverra velit venenatis fermentum luctus.</p>
@@ -146,7 +157,10 @@
 								while ($relatedProduct = sqlsrv_fetch_array($products)) {
 							?>
 								<div class="product">
-									<div class="product_image"><img style="width: 100%; height: auto;" src="<?php echo $relatedProduct['product_img']; ?>" alt=""></div>
+									<div class="product_image">
+										<span class="helper__vertically-center-image"></span>
+										<img style="width: 100%; height: auto;" src="<?php echo $relatedProduct['product_img']; ?>" alt="">
+									</div>
 									<div class="product_content">
 										<div class="product_title"><a href="product-detail.php?id=<?php echo $relatedProduct['product_id']; ?>"><?php echo $relatedProduct['product_name']; ?></a></div>
 										<div class="product_price"><?php echo $relatedProduct['product_price']; ?> vnđ</div>

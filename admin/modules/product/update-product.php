@@ -19,7 +19,7 @@
     $allBrands = sqlsrv_query( $conn, $sqlReadAllBrands);
 ?>
 
-<form action="modules/product/process.php" method="POST">
+<form action="modules/product/process.php" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="product-id" value="<?php echo $_GET['id']; ?>">
     <div class="form-group">
         <label for="product-stock-input">Kho</label>
@@ -77,13 +77,12 @@
     </div>
     <div class="form-group">
         <label for="product-img-input">Hình ảnh sản phẩm</label>
-        <input type="file" class="form-control-file" name="product-img" id="product-img-input" accept="image/*"
-            value="<?php echo $product['product_img']; ?>" required>
+        <input type="file" class="form-control-file" name="product-img" id="product-img-input" accept="image/*" required>
     </div>
     <div class="form-group">
         <label for="product-quantity-input">Số lượng</label>
         <input type="number" min="0" class="form-control" name="product-quantity" id="product-quantity-input"
             value="<?php echo $product['product_quantity']; ?>" required>  
     </div>
-    <input type="submit" class="btn btn-info" name="add" value="Thêm">
+    <input type="submit" class="btn btn-info" name="update" value="Cập nhật">
 </form>

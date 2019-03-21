@@ -39,10 +39,9 @@
 								<div class="row">
 									<div class="col">
 										<div class="home_slider_content" data-animation-in="fadeIn" data-animation-out="animate-out fadeOut">
-											<div class="home_slider_title">A new Online Shop experience.</div>
-											<div class="home_slider_subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a
-												ultricies metus. Sed nec molestie eros. Sed viverra velit venenatis fermentum luctus.</div>
-											<div class="button button_light home_button"><a href="#">Shop Now</a></div>
+											<div class="home_slider_title">Laptop dành cho mọi đối tượng</div>
+											<div class="home_slider_subtitle">Các sản phẩm đa dạng thuộc mọi phân khúc, tầm giá</div>
+											<div class="button button_light home_button"><a href="#">Mua ngay</a></div>
 										</div>
 									</div>
 								</div>
@@ -58,10 +57,9 @@
 								<div class="row">
 									<div class="col">
 										<div class="home_slider_content" data-animation-in="fadeIn" data-animation-out="animate-out fadeOut">
-											<div class="home_slider_title">A new Online Shop experience.</div>
-											<div class="home_slider_subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a
-												ultricies metus. Sed nec molestie eros. Sed viverra velit venenatis fermentum luctus.</div>
-											<div class="button button_light home_button"><a href="#">Shop Now</a></div>
+											<div class="home_slider_title">Workstation chất lượng cao</div>
+											<div class="home_slider_subtitle">Hiệu năng cao trong tầm giá</div>
+											<div class="button button_light home_button"><a href="#">Mua ngay</a></div>
 										</div>
 									</div>
 								</div>
@@ -77,10 +75,9 @@
 								<div class="row">
 									<div class="col">
 										<div class="home_slider_content" data-animation-in="fadeIn" data-animation-out="animate-out fadeOut">
-											<div class="home_slider_title">A new Online Shop experience.</div>
-											<div class="home_slider_subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a
-												ultricies metus. Sed nec molestie eros. Sed viverra velit venenatis fermentum luctus.</div>
-											<div class="button button_light home_button"><a href="#">Shop Now</a></div>
+											<div class="home_slider_title">Laptop dành cho doanh nhân</div>
+											<div class="home_slider_subtitle">Độ bền thách thức thời gian, giá thành thách thức mọi đối thủ</div>
+											<div class="button button_light home_button"><a href="#">Mua ngay</a></div>
 										</div>
 									</div>
 								</div>
@@ -156,79 +153,80 @@
 
 						<div class="product_grid">
 
-							<!-- Product -->
+							<!-- Quick access -->
 							<div class="product">
 								<div class="product_image"><img src="images/product_1.jpg" alt=""></div>
-								<div class="product_extra product_new"><a href="categories.html">New</a></div>
+								<div class="product_extra product_sale"><a href="">Hot</a></div>
 								<div class="product_content">
-									<div class="product_title"><a href="product.html">Smart Phone</a></div>
-									<div class="product_price">$670</div>
+									<div class="product_title"><a href="product-list.php?brand=Dell">Laptop thương hiệu Dell</a></div>
+									<div class="product_price">Chỉ từ 4 triệu đồng</div>
 								</div>
 							</div>
 
-							<!-- Product -->
+							<!-- Quick access -->
 							<div class="product">
 								<div class="product_image"><img src="images/product_2.jpg" alt=""></div>
-								<div class="product_extra product_sale"><a href="categories.html">Sale</a></div>
+								<div class="product_extra product_sale"><a href="">Hot</a></div>
 								<div class="product_content">
-									<div class="product_title"><a href="product.html">Smart Phone</a></div>
-									<div class="product_price">$670</div>
+									<div class="product_title"><a href="product-list.php?brand=Apple">Laptop thương hiệu Apple</a></div>
+									<div class="product_price">Chỉ từ 14 triệu đồng</div>
 								</div>
 							</div>
 
-							<!-- Product -->
+							<!-- Quick access -->
 							<div class="product">
 								<div class="product_image"><img src="images/product_3.jpg" alt=""></div>
 								<div class="product_content">
-									<div class="product_title"><a href="product.html">Smart Phone</a></div>
-									<div class="product_price">$670</div>
+									<div class="product_title"><a href="product-list.php?brand=Lenovo">Laptop Lenovo Thinkpad đẳng cấp</a></div>
+									<div class="product_price">Gía cực tốt</div>
 								</div>
 							</div>
 
-							<!-- Product -->
+							<!-- Quick access -->
 							<div class="product">
 								<div class="product_image"><img src="images/product_4.jpg" alt=""></div>
+								<div class="product_extra product_new"><a href="">New</a></div>
 								<div class="product_content">
-									<div class="product_title"><a href="product.html">Smart Phone</a></div>
-									<div class="product_price">$670</div>
+									<div class="product_title"><a href="product-list.php?brand=Acer">Laptop thương hiệu Acer</a></div>
+									<div class="product_price">Chỉ từ 4 triệu đồng</div>
 								</div>
 							</div>
 
-							<!-- Product -->
+							<!-- Quick access -->
 							<div class="product">
 								<div class="product_image"><img src="images/product_5.jpg" alt=""></div>
+								<div class="product_extra product_sale"><a href="">Hot</a></div>
 								<div class="product_content">
-									<div class="product_title"><a href="product.html">Smart Phone</a></div>
-									<div class="product_price">$670</div>
+									<div class="product_title"><a href="product-list.php?category=Business">Laptop Doanh nhân</a></div>
+									<div class="product_price">Gía ưu đãi</div>
 								</div>
 							</div>
 
-							<!-- Product -->
+							<!-- Quick access -->
 							<div class="product">
 								<div class="product_image"><img src="images/product_6.jpg" alt=""></div>
-								<div class="product_extra product_hot"><a href="categories.html">Hot</a></div>
 								<div class="product_content">
-									<div class="product_title"><a href="product.html">Smart Phone</a></div>
-									<div class="product_price">$670</div>
+									<div class="product_title"><a href="product-list.php?category=Gaming">Laptop Chơi game</a></div>
+									<div class="product_price">Chỉ từ 7 triệu đồng</div>
 								</div>
 							</div>
 
-							<!-- Product -->
+							<!-- Quick access -->
 							<div class="product">
 								<div class="product_image"><img src="images/product_7.jpg" alt=""></div>
 								<div class="product_content">
-									<div class="product_title"><a href="product.html">Smart Phone</a></div>
-									<div class="product_price">$670</div>
+									<div class="product_title"><a href="product-list.php?category=Workstation">Laptop Workstation</a></div>
+									<div class="product_price">Gía cực tốt</div>
 								</div>
 							</div>
 
-							<!-- Product -->
+							<!-- Quick access -->
 							<div class="product">
 								<div class="product_image"><img src="images/product_8.jpg" alt=""></div>
 								<div class="product_extra product_sale"><a href="categories.html">Hot</a></div>
 								<div class="product_content">
-									<div class="product_title"><a href="product.html">Smart Phone</a></div>
-									<div class="product_price">$670</div>
+									<div class="product_title"><a href="product-list.php?category=Ultrabook">Laptop mỏng nhẹ</a></div>
+									<div class="product_price">Chỉ từ 4 triệu đồng</div>
 								</div>
 							</div>
 
@@ -268,7 +266,7 @@
 					<div class="col-lg-4 icon_box_col">
 						<div class="icon_box">
 							<div class="icon_box_image"><img src="images/icon_1.svg" alt=""></div>
-							<div class="icon_box_title">Free Shipping Worldwide</div>
+							<div class="icon_box_title">Miễn phí giao hàng toàn quốc</div>
 							<div class="icon_box_text">
 								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie.</p>
 							</div>
@@ -279,7 +277,7 @@
 					<div class="col-lg-4 icon_box_col">
 						<div class="icon_box">
 							<div class="icon_box_image"><img src="images/icon_2.svg" alt=""></div>
-							<div class="icon_box_title">Free Returns</div>
+							<div class="icon_box_title">Đổi trả miễn phí 7 ngày</div>
 							<div class="icon_box_text">
 								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie.</p>
 							</div>
@@ -290,7 +288,7 @@
 					<div class="col-lg-4 icon_box_col">
 						<div class="icon_box">
 							<div class="icon_box_image"><img src="images/icon_3.svg" alt=""></div>
-							<div class="icon_box_title">24h Fast Support</div>
+							<div class="icon_box_title">Dịch vụ hoàn hảo</div>
 							<div class="icon_box_text">
 								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie.</p>
 							</div>

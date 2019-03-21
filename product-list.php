@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="src/lib/OwlCarousel2-2.2.1/animate.css">
 	<link rel="stylesheet" type="text/css" href="src/css/categories.css">
 	<link rel="stylesheet" type="text/css" href="src/css/categories_responsive.css">
+	<link rel="stylesheet" type="text/css" href="src/css/helper.css">
 </head>
 
 <body>
@@ -33,7 +34,20 @@
 						<div class="row">
 							<div class="col">
 								<div class="home_content">
-									<div class="home_title">Smart Phones<span>.</span></div>
+									<div class="home_title">
+										Laptop
+										<?php
+											if (isset($_GET['category'])) {
+												echo $_GET['category'];
+												if (isset($_GET['brand'])) echo ", ";
+											}
+
+											if (isset($_GET['brand'])) {
+												echo $_GET['brand'];
+											}	
+										?>
+										<span>.</span>
+									</div>
 									<div class="home_text">
 										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie eros.
 											Sed viverra velit venenatis fermentum luctus.</p>
@@ -51,20 +65,33 @@
 		<?php
 			require 'config/connection.php';
 
-			if(isset($_GET['category'])) $cat = $_GET['category'];
-			if(isset($_GET['brand'])) $br = $_GET['brand'];
+			if(isset($_GET['category'])) {
+				$categoryName = $_GET['category'];
+				$sqlReadCategoryByName = "SELECT category_id FROM dbo.category WHERE category_name = ?";
+				$p = array($categoryName);
+				$stmt = sqlsrv_query( $conn, $sqlReadCategoryByName, $p);
+				$cat = sqlsrv_fetch_array($stmt);
+			}
+			if(isset($_GET['brand'])) {
+				$brandName = $_GET['brand'];
+				$sqlReadBrandByName = "SELECT brand_id FROM dbo.brand WHERE brand_name = ?";
+				$p = array($brandName);
+				$stmt = sqlsrv_query( $conn, $sqlReadBrandByName, $p);
+				$br = sqlsrv_fetch_array($stmt);
+			}
 
-			$sqlGetProductsByFilter = "SELECT * FROM dbo.product WHERE";
+			$sqlReadProductsByFilter = "SELECT * FROM dbo.product WHERE";
 			$params = array();
 			if (isset($cat)) {
-				$sqlGetProductsByFilter = $sqlGetProductsByFilter . " category_id = ?";
-				array_push($params, $cat);
+				$sqlReadProductsByFilter = $sqlReadProductsByFilter . " category_id = ?";
+				array_push($params, $cat['category_id']);
+				if (isset($br)) $sqlReadProductsByFilter = $sqlReadProductsByFilter . " AND";
 			}
 			if (isset($br)) {
-				$sqlGetProductsByFilter = $sqlGetProductsByFilter . " brand_id = ?";
-				array_push($params, $br);
+				$sqlReadProductsByFilter = $sqlReadProductsByFilter . " brand_id = ?";
+				array_push($params, $br['brand_id']);
 			}
-			$filteredProducts = sqlsrv_query( $conn, $sqlGetProductsByFilter, $params);
+			$filteredProducts = sqlsrv_query( $conn, $sqlReadProductsByFilter, $params);
 		?>
 
 		<div class="products">
@@ -111,7 +138,10 @@
 
 								<!-- Product -->
 								<div class="product">
-									<div class="product_image"><img style="width: 100%; height: auto;" src="<?php echo $product['product_img']; ?>" alt=""></div>
+									<div class="product_image">
+										<span class="helper__vertically-center-image"></span>
+										<img src="<?php echo $product['product_img']; ?>" alt="">
+									</div>
 									<div class="product_content">
 										<div class="product_title"><a href="product-detail.php?id=<?php echo $product['product_id']; ?>"><?php echo $product['product_name']; ?></a></div>
 										<div class="product_price"><?php echo $product['product_price']; ?> vnđ</div>
