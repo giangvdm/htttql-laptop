@@ -100,13 +100,13 @@
 										</div>
 										<div class="col-lg-6">
 											<!-- Password -->
-											<label for="customer-name-input">Nhập lại mật khẩu</label>
-											<input type="password" name="customer-name" id="customer-name-input" class="contact_input" required="required">
+											<label for="customer-password-repeat-input">Nhập lại mật khẩu</label>
+											<input type="password" name="customer-password-repeat" id="customer-password-repeat-input" class="contact_input" required="required">
 										</div>
 									</div>
 									<div>
-										<label for="customer-address">Địa chỉ</label>
-										<textarea name="customer-address" id="customer-address" class="contact_input customer-address" required="required"></textarea>
+										<label for="customer-address-input">Địa chỉ</label>
+										<textarea name="customer-address" id="customer-address-input" class="contact_input customer-address" required="required"></textarea>
 									</div>
 									<button type="submit" name="register" class="button contact_button"><span>Đăng ký</span></button>
 								</form>
