@@ -34,7 +34,7 @@
 			$currentProduct = sqlsrv_fetch_array($stmt);
 		?>
 
-		<div class="home">
+		<div class="home" id="main" data-page-content="product">
 			<div class="home_container">
 				<div class="home_background" style="background-image:url(images/categories.jpg)"></div>
 				<div class="home_content_container">
@@ -83,12 +83,21 @@
 					<div class="col-lg-6">
 						<div class="details_content">
 							<div class="details_name"><?php echo $currentProduct['product_name']; ?></div>
-							<div class="details_price"><?php echo $currentProduct['product_price'] ?> vnđ</div>
+							<div class="details_price"><?php echo $currentProduct['product_price']; ?> vnđ</div>
 
 							<!-- In Stock -->
 							<div class="in_stock_container">
 								<div class="availability">Tình trạng:</div>
-								<span>Còn hàng</span>
+								<span>
+									<?php
+										if ($currentProduct['product_quantity'] > 0) {
+											echo "Còn hàng";
+										}
+										else {
+											echo "Hết hàng";
+										}
+									?>
+								</span>
 							</div>
 							<div class="details_text">
 								<p><?php echo $currentProduct['product_desc'] ?></p>
@@ -96,15 +105,18 @@
 
 							<!-- Product Quantity -->
 							<div class="product_quantity_container">
-								<div class="product_quantity clearfix">
-									<span>SL</span>
-									<input id="quantity_input" type="text" pattern="[0-9]*" value="1">
-									<div class="quantity_buttons">
-										<div id="quantity_inc_button" class="quantity_inc quantity_control"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
-										<div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
+								<form action="cart.php" method="GET">
+									<input type="hidden" name="id" value="<?php if (isset($_GET['id'])) echo $_GET['id']; ?>">
+									<div class="product_quantity clearfix">
+										<span>SL</span>
+										<input id="quantity_input" type="text" name="quantity" pattern="[0-9]*" value="1" required>
+										<div class="quantity_buttons">
+											<div id="quantity_inc_button" class="quantity_inc quantity_control"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
+											<div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
+										</div>
 									</div>
-								</div>
-								<div class="button cart_button"><a href="#">Thêm vào giỏ hàng</a></div>
+									<button type="submit" class="newsletter_button trans_200" style="overflow: hidden; position: relative"><span>Thêm vào giỏ hàng</span></button>
+								</form>
 							</div>
 
 							<!-- Share -->
@@ -192,6 +204,7 @@
 	<script src="src/lib/easing/easing.js"></script>
 	<script src="src/lib/parallax-js-master/parallax.min.js"></script>
 	<script src="src/js/product.js"></script>
+	<script src="src/js/nav.js"></script>
 </body>
 
 </html>

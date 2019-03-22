@@ -79,8 +79,8 @@
                             </ul>
                         </nav>
                         <div class="header_extra ml-auto">
-                            <div class="shopping_cart">
-                                <a href="cart.html">
+                            <div class="shopping_cart js-nav-item" data-page-content="cart">
+                                <a href="cart.php">
                                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                         viewBox="0 0 489 489" style="enable-background:new 0 0 489 489;" xml:space="preserve">
                                         <g>
@@ -91,7 +91,10 @@
                                             c0,7.5,6,13.5,13.5,13.5s13.5-6,13.5-13.5v-41h45.2l26.9,302.3C412.8,445.2,392.1,462,366.8,462z" />
                                         </g>
                                     </svg>
-                                    <div>Giỏ hàng <span>(0)</span></div>
+                                    <div>
+                                        <?php include('utils/math.php'); ?>
+                                        Giỏ hàng <span>(<?php echo sumArray($_SESSION['product-quantity']); ?>)</span>
+                                    </div>
                                 </a>
                             </div>
                             <div class="hamburger"><i class="fa fa-bars" aria-hidden="true"></i></div>

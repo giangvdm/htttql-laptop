@@ -4,12 +4,12 @@
     // Phuc's Laptop: DESKTOP-ATUH7UU
     // Khanh's Laptop: DESKTOP-9P63LEP\SQLSERVER2017
 
-    $serverName = "DESKTOP-P4LC40P";
+    $serverName = gethostbyaddr($_SERVER['REMOTE_ADDR']);
     $username = "sa";
-    $password = "12345";
-    $dbName = "laptop";
+    $password = "1";
+    $dbName = "laptophd";
 
-    $connectionInfo = array("Database"=>$dbName, "UID"=>$username, "PWD"=>$password);
+    $connectionInfo = array("Database"=>$dbName, "UID"=>$username, "PWD"=>$password, "CharacterSet"=>"UTF-8");
     $conn = sqlsrv_connect( $serverName, $connectionInfo);
 
     if($conn === false) {

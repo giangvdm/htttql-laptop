@@ -24,7 +24,11 @@
 			session_start();
             $_SESSION['customer-name'] = $customer['customer_name'];
             $_SESSION['customer-email'] = $customer['customer_email'];
-            $_SESSION['customer-address'] = $customer['customer_address'];
+			$_SESSION['customer-address'] = $customer['customer_address'];
+			$_SESSION['product-in-cart'] = array();
+			$_SESSION['product-quantity'] = array();
+			$_SESSION['product-subtotal'] = array();
+			$_SESSION['cart-total'] = 0;
             
             header('location:index.php');
         }
@@ -57,7 +61,7 @@
 
 		<!-- Home -->
 
-		<div class="home">
+		<div class="home" id="main" data-page-content="account">
 			<div class="home_container">
 				<div class="home_background" style="background-image:url(images/contact.jpg)"></div>
 				<div class="home_content_container">

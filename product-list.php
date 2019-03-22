@@ -26,7 +26,7 @@
 
 		<!-- Home -->
 
-		<div class="home">
+		<div class="home" id="main" data-page-content="product">
 			<div class="home_container">
 				<div class="home_background" style="background-image:url(images/categories.jpg)"></div>
 				<div class="home_content_container">
@@ -224,6 +224,7 @@
 	<script src="src/lib/easing/easing.js"></script>
 	<script src="src/lib/parallax-js-master/parallax.min.js"></script>
 	<script src="src/js/categories.js"></script>
+	<script src="src/js/nav.js"></script>
 </body>
 
 </html>

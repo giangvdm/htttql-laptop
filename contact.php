@@ -22,7 +22,7 @@
 
 		<!-- Home -->
 
-		<div class="home">
+		<div class="home" id="main" data-page-content="contact">
 			<div class="home_container">
 				<div class="home_background" style="background-image:url(images/contact.jpg)"></div>
 				<div class="home_content_container">

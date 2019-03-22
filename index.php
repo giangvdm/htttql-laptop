@@ -25,7 +25,7 @@
 
 		<!-- Home -->
 
-		<div class="home">
+		<div class="home" id="main" data-page-content="home">
 			<div class="home_slider_container">
 
 				<!-- Home Slider -->
