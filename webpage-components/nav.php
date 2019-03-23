@@ -93,7 +93,16 @@
                                     </svg>
                                     <div>
                                         <?php include('utils/math.php'); ?>
-                                        Giỏ hàng <span>(<?php echo sumArray($_SESSION['product-quantity']); ?>)</span>
+                                        Giỏ hàng 
+                                        <span>(<?php
+                                                    if (isset($_SESSION['customer-name'])) {
+                                                        echo sumArray($_SESSION['product-quantity']);
+                                                    }
+                                                    else {
+                                                        echo 0;
+                                                    }
+                                                ?>)
+                                        </span>
                                     </div>
                                 </a>
                             </div>

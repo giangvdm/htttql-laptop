@@ -34,6 +34,7 @@
 					<!-- Slider Item -->
 					<div class="owl-item home_slider_item">
 						<div class="home_slider_background" style="background-image:url(images/home_slider_1.jpg)"></div>
+						<div style="background-color: rgba(0, 0, 0, 0.4); width: 100%; height: 100%;"></div>
 						<div class="home_slider_content_container">
 							<div class="container">
 								<div class="row">
@@ -51,7 +52,8 @@
 
 					<!-- Slider Item -->
 					<div class="owl-item home_slider_item">
-						<div class="home_slider_background" style="background-image:url(images/home_slider_1.jpg)"></div>
+						<div class="home_slider_background" style="background-image:url(images/home_slider_2.jpg)"></div>
+						<div style="background-color: rgba(0, 0, 0, 0.4); width: 100%; height: 100%;"></div>
 						<div class="home_slider_content_container">
 							<div class="container">
 								<div class="row">
@@ -69,7 +71,8 @@
 
 					<!-- Slider Item -->
 					<div class="owl-item home_slider_item">
-						<div class="home_slider_background" style="background-image:url(images/home_slider_1.jpg)"></div>
+						<div class="home_slider_background" style="background-image:url(images/home_slider_3.jpg)"></div>
+						<div style="background-color: rgba(0, 0, 0, 0.4); width: 100%; height: 100%;"></div>
 						<div class="home_slider_content_container">
 							<div class="container">
 								<div class="row">
@@ -155,7 +158,7 @@
 
 							<!-- Quick access -->
 							<div class="product">
-								<div class="product_image"><img src="images/product_1.jpg" alt=""></div>
+								<div class="product_image"><img src="images/flagship_dell.jpg" alt=""></div>
 								<div class="product_extra product_sale"><a href="">Hot</a></div>
 								<div class="product_content">
 									<div class="product_title"><a href="product-list.php?brand=Dell">Laptop thương hiệu Dell</a></div>
@@ -165,7 +168,7 @@
 
 							<!-- Quick access -->
 							<div class="product">
-								<div class="product_image"><img src="images/product_2.jpg" alt=""></div>
+								<div class="product_image"><img src="images/flagship_apple.jpg" alt=""></div>
 								<div class="product_extra product_sale"><a href="">Hot</a></div>
 								<div class="product_content">
 									<div class="product_title"><a href="product-list.php?brand=Apple">Laptop thương hiệu Apple</a></div>
@@ -175,7 +178,7 @@
 
 							<!-- Quick access -->
 							<div class="product">
-								<div class="product_image"><img src="images/product_3.jpg" alt=""></div>
+								<div class="product_image"><img src="images/flagship_thinkpad.jpg" alt=""></div>
 								<div class="product_content">
 									<div class="product_title"><a href="product-list.php?brand=Lenovo">Laptop Lenovo Thinkpad đẳng cấp</a></div>
 									<div class="product_price">Gía cực tốt</div>
@@ -184,7 +187,7 @@
 
 							<!-- Quick access -->
 							<div class="product">
-								<div class="product_image"><img src="images/product_4.jpg" alt=""></div>
+								<div class="product_image"><img src="images/flagship_acer.jpg" alt=""></div>
 								<div class="product_extra product_new"><a href="">New</a></div>
 								<div class="product_content">
 									<div class="product_title"><a href="product-list.php?brand=Acer">Laptop thương hiệu Acer</a></div>
@@ -194,7 +197,7 @@
 
 							<!-- Quick access -->
 							<div class="product">
-								<div class="product_image"><img src="images/product_5.jpg" alt=""></div>
+								<div class="product_image"><img src="images/flagship_business.jpg" alt=""></div>
 								<div class="product_extra product_sale"><a href="">Hot</a></div>
 								<div class="product_content">
 									<div class="product_title"><a href="product-list.php?category=Business">Laptop Doanh nhân</a></div>
@@ -204,7 +207,7 @@
 
 							<!-- Quick access -->
 							<div class="product">
-								<div class="product_image"><img src="images/product_6.jpg" alt=""></div>
+								<div class="product_image"><img src="images/flagship_gaming.jpg" alt=""></div>
 								<div class="product_content">
 									<div class="product_title"><a href="product-list.php?category=Gaming">Laptop Chơi game</a></div>
 									<div class="product_price">Chỉ từ 7 triệu đồng</div>
@@ -213,7 +216,7 @@
 
 							<!-- Quick access -->
 							<div class="product">
-								<div class="product_image"><img src="images/product_7.jpg" alt=""></div>
+								<div class="product_image"><img src="images/flagship_workstation.jpg" alt=""></div>
 								<div class="product_content">
 									<div class="product_title"><a href="product-list.php?category=Workstation">Laptop Workstation</a></div>
 									<div class="product_price">Gía cực tốt</div>
@@ -222,7 +225,7 @@
 
 							<!-- Quick access -->
 							<div class="product">
-								<div class="product_image"><img src="images/product_8.jpg" alt=""></div>
+								<div class="product_image"><img src="images/flagship_ultrabook.jpg" alt=""></div>
 								<div class="product_extra product_sale"><a href="categories.html">Hot</a></div>
 								<div class="product_content">
 									<div class="product_title"><a href="product-list.php?category=Ultrabook">Laptop mỏng nhẹ</a></div>

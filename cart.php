@@ -17,29 +17,9 @@
 <body>
 
 	<div class="super_container">
-		<?php
-			session_start();
-			if (!isset($_SESSION['customer-name'])) {
-				header('location:login.php');
-			}
-		?>
 
 		<!-- Header and Navigation bar + on mobile -->
 		<?php include('webpage-components/nav.php'); ?>
-		
-
-		<?php
-			if (isset($_SESSION['customer-name']) && isset($_GET['id']) && isset($_GET['quantity'])) {
-				if (!in_array($_GET['id'], $_SESSION['product-in-cart'])) { // new product in cart
-					array_push($_SESSION['product-in-cart'], $_GET['id']);
-					array_push($_SESSION['product-quantity'], $_GET['quantity']);
-				}
-				else { // product already exists in cart
-					$index = array_search($_GET['id'], $_SESSION['product-in-cart']);
-					$_SESSION['product-quantity'][$index] += $_GET['quantity'];
-				}
-			}
-		?>
 
 		<!-- Home -->
 
@@ -98,28 +78,31 @@
 								<!-- Name -->
 								<div class="cart_item_product d-flex flex-row align-items-center justify-content-start">
 									<div class="cart_item_image">
-										<div><img src="<?php echo $currentProduct['product_img']; ?>" alt=""></div>
+										<div>
+											<img src="<?php echo $currentProduct['product_img']; ?>" alt="">
+										</div>
 									</div>
 									<div class="cart_item_name_container">
 										<div class="cart_item_name">
-											<a href="product-detail.php?id=<?php echo $currentProduct['product_id']; ?>"><?php echo $currentProduct['product_name']; ?></a>
+											<a href="product-detail.php?id=<?php echo $currentProduct['product_id']; ?>">
+												<?php echo $currentProduct['product_name']; ?>
+											</a>
 										</div>
-										<!-- <div class="cart_item_edit"><a href="#">Edit Product</a></div> -->
+										<div class="cart_item_edit">
+											<a href="utils/process-cart.php?action=remove&id=<?php echo $currentProduct['product_id']; ?>">
+												Xóa khỏi giỏ hàng</a>
+										</div>
 									</div>
 								</div>
 								<!-- Price -->
-								<div class="cart_item_price"><?php echo $currentProduct['product_price']; ?> vnđ</div>
+								<div class="cart_item_price">
+									<?php echo $currentProduct['product_price']; ?>
+								</div>
 								<!-- Quantity -->
 								<div class="cart_item_quantity">
 									<div class="product_quantity_container">
 										<div class="product_quantity clearfix">
-											<span>SL</span>
-											<input id="quantity_input" type="text" pattern="[0-9]*" value="<?php echo $_SESSION['product-quantity'][$i]; ?>">
-											<div class="quantity_buttons">
-												<div id="quantity_inc_button" class="quantity_inc quantity_control"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
-												<div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fa fa-chevron-down"
-													aria-hidden="true"></i></div>
-											</div>
+											<span><?php echo $_SESSION['product-quantity'][$i]; ?></span>
 										</div>
 									</div>
 								</div>
@@ -146,7 +129,7 @@
 							<div class="button continue_shopping_button"><a href="index.php">Tiếp tục mua sắm</a></div>
 							<div class="cart_buttons_right ml-lg-auto">
 								<div class="button clear_cart_button"><a href="utils/reset-cart.php">Xóa giỏ hàng</a></div>
-								<div class="button update_cart_button"><a href="cart.php">Cập nhật giỏ hàng</a></div>
+								<!-- <div class="button update_cart_button"><a href="cart.php">Cập nhật giỏ hàng</a></div> -->
 							</div>
 						</div>
 					</div>
@@ -154,7 +137,9 @@
 				<div class="row row_extra">
 					<div class="col-lg-4">
 						<?php
-							var_dump($_SESSION['product-subtotal']);
+							var_dump($_SESSION['product-in-cart']);
+							// $test = array_search('249', $_SESSION['product-in-cart']);
+							// echo $test;
 						?>
 					</div>
 
@@ -172,7 +157,7 @@
 									</li>
 									<li class="d-flex flex-row align-items-center justify-content-start">
 										<div class="cart_total_title">Vận chuyển</div>
-										<div class="cart_total_value ml-auto">Free</div>
+										<div class="cart_total_value ml-auto">Miễn phí</div>
 									</li>
 									<li class="d-flex flex-row align-items-center justify-content-start">
 										<div class="cart_total_title">Thành tiền</div>

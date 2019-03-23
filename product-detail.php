@@ -36,7 +36,7 @@
 
 		<div class="home" id="main" data-page-content="product">
 			<div class="home_container">
-				<div class="home_background" style="background-image:url(images/categories.jpg)"></div>
+				<div class="home_background" style="background-image:url(images/common_banner.jpg)"></div>
 				<div class="home_content_container">
 					<div class="container">
 						<div class="row">
@@ -105,7 +105,8 @@
 
 							<!-- Product Quantity -->
 							<div class="product_quantity_container">
-								<form action="cart.php" method="GET">
+								<form action="utils/process-cart.php" method="GET">
+									<input type="hidden" name="action" value="add">
 									<input type="hidden" name="id" value="<?php if (isset($_GET['id'])) echo $_GET['id']; ?>">
 									<div class="product_quantity clearfix">
 										<span>SL</span>
