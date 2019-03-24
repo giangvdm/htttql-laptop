@@ -57,7 +57,7 @@
                                     <a href="contact.php">Liên hệ</a>
                                 </li>
                                 <?php
-                                    if (isset($_SESSION['customer-name'])) {
+                                    if (isset($_SESSION['customer-id'])) {
                                 ?>
                                      <li class="js-nav-item" data-page-content="account">
                                         <a href="logout.php">Đăng xuất</a>
@@ -95,7 +95,7 @@
                                         <?php include('utils/math.php'); ?>
                                         Giỏ hàng 
                                         <span>(<?php
-                                                    if (isset($_SESSION['customer-name'])) {
+                                                    if (isset($_SESSION['customer-id'])) {
                                                         echo sumArray($_SESSION['product-quantity']);
                                                     }
                                                     else {
@@ -181,7 +181,7 @@
                     <a href="contact.php">Liên hệ</a>
                 </li>
                 <?php
-                    if (isset($_SESSION['customer-name'])) {
+                    if (isset($_SESSION['customer-id'])) {
                 ?>
                     <li class="page_menu_item menu_mm">
                         <a href="logout.php">Đăng xuất</a>

@@ -22,6 +22,7 @@
     
         if ($isLoggedIn) {
 			session_start();
+			$_SESSION['customer-id'] = $customer['customer_id'];
             $_SESSION['customer-name'] = $customer['customer_name'];
             $_SESSION['customer-email'] = $customer['customer_email'];
 			$_SESSION['customer-address'] = $customer['customer_address'];

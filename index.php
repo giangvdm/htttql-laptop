@@ -123,7 +123,7 @@
 							<div>
 								<div class="avds_discount">
 									<div>20<span>%</span></div>
-									<div>Discount</div>
+									<div>Ưu đãi</div>
 								</div>
 							</div>
 						</div>
@@ -201,7 +201,7 @@
 								<div class="product_extra product_sale"><a href="">Hot</a></div>
 								<div class="product_content">
 									<div class="product_title"><a href="product-list.php?category=Business">Laptop Doanh nhân</a></div>
-									<div class="product_price">Gía ưu đãi</div>
+									<div class="product_price">Giá ưu đãi</div>
 								</div>
 							</div>
 
@@ -219,7 +219,7 @@
 								<div class="product_image"><img src="images/flagship_workstation.jpg" alt=""></div>
 								<div class="product_content">
 									<div class="product_title"><a href="product-list.php?category=Workstation">Laptop Workstation</a></div>
-									<div class="product_price">Gía cực tốt</div>
+									<div class="product_price">Giá cực tốt</div>
 								</div>
 							</div>
 
@@ -249,7 +249,7 @@
 						<div class="avds_xl_container clearfix">
 							<div class="avds_xl_background" style="background-image:url(images/avds_xl.jpg)"></div>
 							<div class="avds_xl_content">
-								<div class="avds_title">Amazing Devices</div>
+								<div class="avds_title">Chất lượng tuyệt vời</div>
 								<div class="avds_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus.</div>
 								<div class="avds_link avds_xl_link"><a href="categories.html">See More</a></div>
 							</div>

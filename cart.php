@@ -136,11 +136,7 @@
 				</div>
 				<div class="row row_extra">
 					<div class="col-lg-4">
-						<?php
-							var_dump($_SESSION['product-in-cart']);
-							// $test = array_search('249', $_SESSION['product-in-cart']);
-							// echo $test;
-						?>
+					
 					</div>
 
 					<div class="col-lg-6 offset-lg-2">
@@ -167,7 +163,9 @@
 									</li>
 								</ul>
 							</div>
-							<div class="button checkout_button"><a href="#">Đặt hàng</a></div>
+							<div class="button checkout_button">
+								<a href="utils/process-cart.php?action=order">Đặt hàng</a>
+							</div>
 						</div>
 					</div>
 				</div>

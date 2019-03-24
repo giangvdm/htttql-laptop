@@ -14,3 +14,11 @@
         $manage = isset($_GET['manage']) ? $_GET['manage'] : '';
         include('modules/' . $manage . '/' . 'read' . '-' . $manage . '.php');
     }
+
+    function emptyCart() {
+        session_start();
+        $_SESSION['product-in-cart'] = array();
+        $_SESSION['product-quantity'] = array();
+        $_SESSION['product-subtotal'] = array();
+        $_SESSION['cart-total'] = 0;
+    }
