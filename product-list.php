@@ -91,7 +91,8 @@
 				$sqlReadProductsByFilter = $sqlReadProductsByFilter . " brand_id = ?";
 				array_push($params, $br['brand_id']);
 			}
-			$filteredProducts = sqlsrv_query( $conn, $sqlReadProductsByFilter, $params);
+			$options =  array( "Scrollable" => SQLSRV_CURSOR_KEYSET ); // change cursor so retrieved rows can be counted
+			$filteredProducts = sqlsrv_query( $conn, $sqlReadProductsByFilter, $params, $options);
 		?>
 
 		<div class="products">
@@ -104,8 +105,7 @@
 							<div class="results">
 								Đang hiển thị <span>
 								<?php 
-									// $numOfRows = sqlsrv_num_rows($filteredProducts);
-									// echo $numOfRows;
+									echo sqlsrv_num_rows($filteredProducts);
 								?>
 								</span> sản phẩm
 							</div>
@@ -113,7 +113,7 @@
 								<div class="sorting">
 									<ul class="item_sorting">
 										<li>
-											<span class="sorting_text">Sort by</span>
+											<span class="sorting_text">Sắp xếp theo</span>
 											<i class="fa fa-chevron-down" aria-hidden="true"></i>
 											<ul>
 												<li class="product_sorting_btn" data-isotope-option='{ "sortBy": "original-order" }'><span>Default</span></li>
@@ -164,48 +164,8 @@
 			</div>
 		</div>
 
-		<!-- Icon Boxes -->
-
-		<div class="icon_boxes">
-			<div class="container">
-				<div class="row icon_box_row">
-
-					<!-- Icon Box -->
-					<div class="col-lg-4 icon_box_col">
-						<div class="icon_box">
-							<div class="icon_box_image"><img src="images/icon_1.svg" alt=""></div>
-							<div class="icon_box_title">Free Shipping Worldwide</div>
-							<div class="icon_box_text">
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie.</p>
-							</div>
-						</div>
-					</div>
-
-					<!-- Icon Box -->
-					<div class="col-lg-4 icon_box_col">
-						<div class="icon_box">
-							<div class="icon_box_image"><img src="images/icon_2.svg" alt=""></div>
-							<div class="icon_box_title">Free Returns</div>
-							<div class="icon_box_text">
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie.</p>
-							</div>
-						</div>
-					</div>
-
-					<!-- Icon Box -->
-					<div class="col-lg-4 icon_box_col">
-						<div class="icon_box">
-							<div class="icon_box_image"><img src="images/icon_3.svg" alt=""></div>
-							<div class="icon_box_title">24h Fast Support</div>
-							<div class="icon_box_text">
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie.</p>
-							</div>
-						</div>
-					</div>
-
-				</div>
-			</div>
-		</div>
+		<!-- Commitments -->
+		<?php include('webpage-components/commitment.php'); ?>
 
 		<!-- Footer -->
 		<?php include('webpage-components/footer.php') ?>

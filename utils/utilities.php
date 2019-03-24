@@ -22,3 +22,9 @@
         $_SESSION['product-subtotal'] = array();
         $_SESSION['cart-total'] = 0;
     }
+
+    function lastInsertId($queryId) {
+        sqlsrv_next_result($queryId);
+        sqlsrv_fetch($queryId);
+        return sqlsrv_get_field($queryId, 0);
+    }

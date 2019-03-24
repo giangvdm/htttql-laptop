@@ -88,16 +88,14 @@
 							<!-- In Stock -->
 							<div class="in_stock_container">
 								<div class="availability">Tình trạng:</div>
-								<span>
 									<?php
 										if ($currentProduct['product_quantity'] > 0) {
-											echo "Còn hàng";
+											echo "<span>Còn hàng</span>";
 										}
 										else {
-											echo "Hết hàng";
+											echo "<span style='color: red'>Hết hàng</span>";
 										}
 									?>
-								</span>
 							</div>
 							<div class="details_text">
 								<p><?php echo $currentProduct['product_desc'] ?></p>
@@ -110,13 +108,19 @@
 									<input type="hidden" name="id" value="<?php if (isset($_GET['id'])) echo $_GET['id']; ?>">
 									<div class="product_quantity clearfix">
 										<span>SL</span>
-										<input id="quantity_input" type="text" name="quantity" pattern="[0-9]*" value="1" required>
+										<input id="quantity_input" type="text" name="quantity" pattern="[0-9]*" value="<?php echo ($currentProduct['product_quantity'] > 0) ? 1 : 0; ?>" required>
 										<div class="quantity_buttons">
 											<div id="quantity_inc_button" class="quantity_inc quantity_control"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
 											<div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
 										</div>
 									</div>
-									<button type="submit" class="newsletter_button trans_200" style="overflow: hidden; position: relative"><span>Thêm vào giỏ hàng</span></button>
+									<?php
+										if ($currentProduct['product_quantity'] > 0):
+									?>
+											<button type="submit" class="newsletter_button trans_200" style="overflow: hidden; position: relative"><span>Thêm vào giỏ hàng</span></button>
+									<?php
+										endif;
+									?>		
 								</form>
 							</div>
 
