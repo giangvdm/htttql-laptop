@@ -31,11 +31,19 @@
 			$_SESSION['product-subtotal'] = array();
 			$_SESSION['cart-total'] = 0;
             
-            header('location:index.php');
+            header('location:index.php?success=login');
         }
     
         sqlsrv_close();
     }
+?>
+
+<?php
+	if (isset($_GET['success'])) {
+		if ($_GET['success'] === 'register') {
+			echo "<script type='text/javascript'>alert('Đăng ký thành công! Giờ bạn đã có thể đăng nhập!');</script>";
+		}
+ 	}
 ?>
 
 <!DOCTYPE html>

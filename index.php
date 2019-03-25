@@ -1,8 +1,16 @@
+<?php
+	if (isset($_GET['success'])) {
+		if ($_GET['success'] === 'login') {
+			echo "<script type='text/javascript'>alert('Đăng nhập thành công!');</script>";
+		}
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="vi">
 
 <head>
-	<title>Laptop 69</title>
+	<title>Trang chủ - Laptop 69</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="description" content="Sublime project">
@@ -128,8 +136,8 @@
 							</div>
 						</div>
 						<div class="avds_small_content">
-							<div class="avds_title">Smart Phones</div>
-							<div class="avds_link"><a href="categories.html">See More</a></div>
+							<div class="avds_title">Laptop sang chảnh</div>
+							<div class="avds_link"><a href="product-list.php?brand=Apple">Xem thêm</a></div>
 						</div>
 					</div>
 				</div>
@@ -137,10 +145,10 @@
 					<div class="avds_background" style="background-image:url(images/avds_large.jpg)"></div>
 					<div class="avds_large_container">
 						<div class="avds_large_content">
-							<div class="avds_title">Professional Cameras</div>
+							<div class="avds_title">Laptop chuyên nghiệp</div>
 							<div class="avds_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed
 								nec molestie eros. Sed viver ra velit venenatis fermentum luctus.</div>
-							<div class="avds_link avds_link_large"><a href="categories.html">See More</a></div>
+							<div class="avds_link avds_link_large"><a href="product-list.php?category=business&brand=Dell">Xem thêm</a></div>
 						</div>
 					</div>
 				</div>
@@ -159,7 +167,7 @@
 							<!-- Quick access -->
 							<div class="product">
 								<div class="product_image"><img src="images/flagship_dell.jpg" alt=""></div>
-								<div class="product_extra product_sale"><a href="">Hot</a></div>
+								<div class="product_extra product_sale"><a href="product-list.php?brand=Dell">Hot</a></div>
 								<div class="product_content">
 									<div class="product_title"><a href="product-list.php?brand=Dell">Laptop thương hiệu Dell</a></div>
 									<div class="product_price">Chỉ từ 4 triệu đồng</div>
@@ -169,7 +177,7 @@
 							<!-- Quick access -->
 							<div class="product">
 								<div class="product_image"><img src="images/flagship_apple.jpg" alt=""></div>
-								<div class="product_extra product_sale"><a href="">Hot</a></div>
+								<div class="product_extra product_sale"><a href="product-list.php?brand=Apple">Hot</a></div>
 								<div class="product_content">
 									<div class="product_title"><a href="product-list.php?brand=Apple">Laptop thương hiệu Apple</a></div>
 									<div class="product_price">Chỉ từ 14 triệu đồng</div>
@@ -188,7 +196,7 @@
 							<!-- Quick access -->
 							<div class="product">
 								<div class="product_image"><img src="images/flagship_acer.jpg" alt=""></div>
-								<div class="product_extra product_new"><a href="">New</a></div>
+								<div class="product_extra product_new"><a href="product-list.php?brand=Acer">Mới</a></div>
 								<div class="product_content">
 									<div class="product_title"><a href="product-list.php?brand=Acer">Laptop thương hiệu Acer</a></div>
 									<div class="product_price">Chỉ từ 4 triệu đồng</div>
@@ -198,7 +206,7 @@
 							<!-- Quick access -->
 							<div class="product">
 								<div class="product_image"><img src="images/flagship_business.jpg" alt=""></div>
-								<div class="product_extra product_sale"><a href="">Hot</a></div>
+								<div class="product_extra product_sale"><a href="product-list.php?category=Business">Hot</a></div>
 								<div class="product_content">
 									<div class="product_title"><a href="product-list.php?category=Business">Laptop Doanh nhân</a></div>
 									<div class="product_price">Giá ưu đãi</div>
@@ -226,7 +234,7 @@
 							<!-- Quick access -->
 							<div class="product">
 								<div class="product_image"><img src="images/flagship_ultrabook.jpg" alt=""></div>
-								<div class="product_extra product_sale"><a href="categories.html">Hot</a></div>
+								<div class="product_extra product_sale"><a href="product-list.php?category=Ultrabook">Hot</a></div>
 								<div class="product_content">
 									<div class="product_title"><a href="product-list.php?category=Ultrabook">Laptop mỏng nhẹ</a></div>
 									<div class="product_price">Chỉ từ 4 triệu đồng</div>

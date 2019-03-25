@@ -1,3 +1,20 @@
+<?php
+	if (isset($_GET['success'])) {
+		switch ($_GET['success']) {
+			case 'add':
+				echo "<script type='text/javascript'>alert('Thêm sản phẩm vào giỏ hàng thành công!');</script>";
+				break;
+			case 'remove':
+				echo "<script type='text/javascript'>alert('Xoá sản phẩm khỏi giỏ hàng thành công!');</script>";
+				break;
+			case 'order':
+				echo "<script type='text/javascript'>alert('Đặt hàng thành công!');</script>";
+				break;
+			default:
+				break;
+		}
+	}
+?>
 
 <!DOCTYPE html>
 <html lang="vi">

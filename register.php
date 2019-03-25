@@ -15,7 +15,7 @@
 		if ($stmt === false) {
 			die(print_r(sqlsrv_errors(), true));
 		}
-		header('location:login.php');
+		header('location:login.php?success=register');
 	}
 ?>
 

@@ -1,18 +1,41 @@
 <?php
+    $processOk = false;
+    
     session_start();
+    require('../config/connection.php');
+    
     if (!isset($_SESSION['customer-id'])) {
         header('location:../login.php');
     }
 
     // Add product to cart
     if (isset($_SESSION['customer-id']) && ($_GET['action'] === "add") && isset($_GET['id']) && isset($_GET['quantity'])) {
+        // get product by id
+        $sqlReadProductById = "SELECT * FROM dbo.product WHERE product_id = ?";
+        $params = array($_GET['id']);
+        $stmt = sqlsrv_query( $conn, $sqlReadProductById, $params);
+        $product = sqlsrv_fetch_array($stmt);
+
         if (!in_array($_GET['id'], $_SESSION['product-in-cart'])) { // new product in cart
-            array_push($_SESSION['product-in-cart'], $_GET['id']);
-            array_push($_SESSION['product-quantity'], $_GET['quantity']);
+            if ($product['product_quantity'] < number_format($_GET['quantity'])) { // customer wants more than available in stock
+                header('location:../product-detail.php?id=' . $_GET['id'] . '&error=quantity');
+            }
+            else {
+                array_push($_SESSION['product-in-cart'], $_GET['id']);
+                array_push($_SESSION['product-quantity'], $_GET['quantity']);
+                $processOk = true;
+            }
         }
         else { // product already exists in cart
             $index = array_search($_GET['id'], $_SESSION['product-in-cart']);
-            $_SESSION['product-quantity'][$index] += $_GET['quantity'];
+            $q = $_GET['quantity'] + $_SESSION['product-quantity'][$index]; // calculate total desired quantity
+            if ($product['product_quantity'] < $q) {
+                header('location:../product-detail.php?id=' . $_GET['id'] . '&error=quantity');
+            }
+            else {
+                $_SESSION['product-quantity'][$index] += $_GET['quantity'];
+                $processOk = true;
+            }
         }
     }
     // Remove product from cart
@@ -20,13 +43,16 @@
         if (in_array($_GET['id'], $_SESSION['product-in-cart'])) {
             $index = array_search($_GET['id'], $_SESSION['product-in-cart']);
             unset($_SESSION['product-in-cart'][$index]);
+            $_SESSION['product-in-cart'] = array_values($_SESSION['product-in-cart']);
             unset($_SESSION['product-quantity'][$index]);
+            $_SESSION['product-quantity'] = array_values($_SESSION['product-quantity']);
             unset($_SESSION['product-subtotal'][$index]);
+            $_SESSION['product-subtotal'] = array_values($_SESSION['product-subtotal']);
+            $processOk = true;
         }
     }
     // Checkout, place order
     else if (isset($_SESSION['customer-id']) && ($_GET['action'] === "order")) {
-        require('../config/connection.php');
         include('utilities.php');
         include('math.php');
 
@@ -83,12 +109,30 @@
                 die(print_r(sqlsrv_errors(), true));
             }
         }
-        foreach ($_SESSION['product-in-cart'] as $productId) {
 
-            
+        // update product quantity
+        foreach ($_SESSION['product-in-cart'] as $index => $productId) {
+            // get product by id
+            $sqlReadProductById = "SELECT * FROM dbo.product WHERE product_id = ?";
+            $params = array($productId);
+            $stmt = sqlsrv_query( $conn, $sqlReadProductById, $params);
+            $product = sqlsrv_fetch_array($stmt);
+            $newQuantity = $product['product_quantity'] - $_SESSION['product-quantity'][$index];
+
+            // update new quantity
+            $sqlUpdateProductQuantity = "UPDATE dbo.product SET product_quantity = ? WHERE product_id = ?";
+            $paramsUpdateQuantity = array($newQuantity, $productId);
+            $upd = sqlsrv_query( $conn, $sqlUpdateProductQuantity, $paramsUpdateQuantity);
+            if ($upd === false) {
+                die(print_r(sqlsrv_errors(), true));
+            }
         }
 
         // empty the cart
         emptyCart();
+
+        $processOk = true;
     }
-    header('location:../cart.php');
+    if ($processOk) {
+        header('location:../cart.php?success=' . $_GET['action']);
+    }

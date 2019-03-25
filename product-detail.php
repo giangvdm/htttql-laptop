@@ -1,3 +1,11 @@
+<?php
+	if (isset($_GET['error'])) {
+		if ($_GET['error'] === 'quantity') {
+			echo "<script type='text/javascript'>alert('Bạn đã chọn quá số lượng có trong kho, vui lòng thử lại!');</script>";
+		}
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -83,10 +91,19 @@
 					<div class="col-lg-6">
 						<div class="details_content">
 							<div class="details_name"><?php echo $currentProduct['product_name']; ?></div>
-							<div class="details_price"><?php echo $currentProduct['product_price']; ?> vnđ</div>
+							<div class="details_price">Giá: <?php echo $currentProduct['product_price']; ?> vnđ</div>
 
 							<!-- In Stock -->
 							<div class="in_stock_container">
+								<?php
+									if ($currentProduct['product_quantity'] > 0):
+								?>
+									<div class="availability" style="display: block; margin-bottom: 15px;">
+										Còn lại: <?php echo $currentProduct['product_quantity']; ?> sản phẩm
+									</div>
+								<?php
+									endif;
+								?>
 								<div class="availability">Tình trạng:</div>
 									<?php
 										if ($currentProduct['product_quantity'] > 0) {

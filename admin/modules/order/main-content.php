@@ -10,19 +10,23 @@
         ?>
 
         <div class="row">
-            <!-- <div class="col-md-3">
-                <aside class="left">
-                    <?php
-                        echo "<b>Thêm nhà sản xuất mới</b>";
-                        echo "<hr>";
-                        renderAside();
-                    ?>
-                </aside>
-            </div> -->
+
+            <div class="row">
+                <div class="offset-md-3 col-md-6">
+                    <section>
+                        <?php
+                            echo "<b>Xem chi tiết đơn hàng</b>";
+                            echo "<hr>";
+                            renderAside();
+                        ?>
+                    </section>
+                </div>
+            </div>
+            <br>
 
             <?php
                 // Select all orders in databse
-                $sqlReadAllOrders = "SELECT * FROM dbo.cart ORDER BY cart_date DESC";
+                $sqlReadAllOrders = "SELECT * FROM dbo.cart ORDER BY cart_id DESC";
                 $allOrders = sqlsrv_query( $conn, $sqlReadAllOrders);
             ?>
             <div class="col-md-12">
@@ -52,11 +56,11 @@
                                         </td>
                                         <td>
                                             <button class="btn btn-info"
-                                                    onclick="window.location.href='index.php?manage=order&action=update&id= <?php echo $order['order_id']; ?> '">
+                                                    onclick="window.location.href='index.php?manage=order&action=read&id=<?php echo $order['cart_id']; ?>'">
                                                 <i class="fa fa-eye" aria-hidden="true"></i>
                                             </button>
                                             <button class="btn btn-danger"
-                                                    onclick="window.location.href='modules/order/delete-order.php?id= <?php echo $order['order_id']; ?> '">
+                                                    onclick="window.location.href='modules/order/delete-order.php?id=<?php echo $order['cart_id']; ?>'">
                                                 <i class="fa fa-trash-o" aria-hidden="true"></i>
                                             </button>
                                         </td>
