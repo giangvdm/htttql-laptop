@@ -13,8 +13,6 @@
             <div class="col-md-12">
                 <section>
                     <?php
-                        echo "<b>Xem chi tiết đơn hàng</b>";
-                        echo "<hr>";
                         renderAside();
                     ?>
                 </section>
