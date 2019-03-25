@@ -2,6 +2,9 @@
     $manage = isset($_GET['manage']) ? $_GET['manage'] : '';
 
     switch ($manage) {
+        case 'home':
+            include('modules/dashboard/main-content.php');
+            break;
         case 'stock':
             include('modules/stock/main-content.php');
             break;

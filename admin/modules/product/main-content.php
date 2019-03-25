@@ -16,6 +16,7 @@
                         echo "<b>Thêm sản phẩm mới</b>";
                         echo "<hr>";
                         renderAside();
+                        echo $GLOBALS['stock'];
                     ?>
                 </section>
             </div>
@@ -24,8 +25,9 @@
 
         <?php
             // Select all products in databse
-            $sqlReadAllProducts = "SELECT * FROM dbo.product ORDER BY product_name ASC";
-            $allProducts = sqlsrv_query( $conn, $sqlReadAllProducts);
+            $sqlReadAllProducts = "SELECT * FROM dbo.product WHERE stock_id = ? ORDER BY product_name ASC";
+            $params = array($_SESSION['stock']);
+            $allProducts = sqlsrv_query( $conn, $sqlReadAllProducts, $params);
         ?>
 
         <div>
@@ -41,7 +43,7 @@
                             <th scope="col">Gía sản phẩm</th>
                             <th scope="col">Mô tả sản phẩm</th>
                             <th scope="col">Hình ảnh sản phẩm</th>
-                            <th scope="col">Kho</th>
+                            <!-- <th scope="col">Kho</th> -->
                             <th scope="col">Số lượng</th>
                             <th scope="col">Hành động</th>
                         </tr>
@@ -76,7 +78,7 @@
                                     <td><?php echo $product['product_price']; ?></td>
                                     <td><?php echo $product['product_desc']; ?></td>
                                     <td><img class="product-img" src="../<?php echo $product['product_img']; ?>"/></td>
-                                    <td>
+                                    <!-- <td>
                                         <?php
                                             $sqlReadStockById = "SELECT * FROM dbo.stock WHERE stock_id = ?";
                                             $params = array($product['stock_id']);
@@ -84,7 +86,7 @@
                                             $stock = sqlsrv_fetch_array($stmt);
                                             echo $stock['stock_name'];
                                         ?>
-                                    </td>
+                                    </td> -->
                                     <td><?php echo $product['product_quantity']; ?></td>
                                     <td>
                                         <button class="btn btn-success"

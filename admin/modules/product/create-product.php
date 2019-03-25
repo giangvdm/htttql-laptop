@@ -2,8 +2,14 @@
     require "../config/connection.php";
 
     // Select all stocks in databse
-    $sqlReadAllStocks = "SELECT * FROM dbo.stock ORDER BY stock_name ASC";
-    $allStocks = sqlsrv_query( $conn, $sqlReadAllStocks);
+    // $sqlReadAllStocks = "SELECT * FROM dbo.stock ORDER BY stock_name ASC";
+    // $allStocks = sqlsrv_query( $conn, $sqlReadAllStocks);
+
+    // get currently working stock
+    $sqlReadStockById = "SELECT * FROM dbo.stock WHERE stock_id = ?";
+    $params = array($_SESSION['stock']);
+    $stmt = sqlsrv_query( $conn, $sqlReadStockById, $params);
+    $currentStock = sqlsrv_fetch_array($stmt);
 
     // Select all categories in databse
     $sqlReadAllCategories = "SELECT * FROM dbo.category ORDER BY category_name ASC";
@@ -17,16 +23,8 @@
 <form action="modules/product/process.php" method="POST" enctype="multipart/form-data">
     <div class="form-group">
         <label for="product-stock-input">Kho</label>
-        <select class="form-control" name="product-stock" id="product-stock-input">
-            <?php
-                $i = 0;
-                while ($stock = sqlsrv_fetch_array($allStocks)) {
-            ?>
-                    <option value="<?php echo $stock['stock_id']; ?>"><?php echo $stock['stock_name']; ?></option>
-            <?php
-                }
-            ?>
-        </select>
+        <input type="text" value="<?php echo $currentStock['stock_name']; ?>" disabled>
+        <input type="hidden" name="product-stock" value="<?php echo $currentStock['stock_id']; ?>">
     </div>
     <div class="form-group">
         <label for="product-name-input">Tên sản phẩm</label>

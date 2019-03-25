@@ -10,25 +10,25 @@
         ?>
 
         <div class="row">
-
-            <div class="row">
-                <div class="offset-md-3 col-md-6">
-                    <section>
-                        <?php
-                            echo "<b>Xem chi tiết đơn hàng</b>";
-                            echo "<hr>";
-                            renderAside();
-                        ?>
-                    </section>
-                </div>
+            <div class="col-md-12">
+                <section>
+                    <?php
+                        echo "<b>Xem chi tiết đơn hàng</b>";
+                        echo "<hr>";
+                        renderAside();
+                    ?>
+                </section>
             </div>
-            <br>
+        </div>
+        <br>
 
-            <?php
-                // Select all orders in databse
-                $sqlReadAllOrders = "SELECT * FROM dbo.cart ORDER BY cart_id DESC";
-                $allOrders = sqlsrv_query( $conn, $sqlReadAllOrders);
-            ?>
+        <?php
+            // Select all orders in databse
+            $sqlReadAllOrders = "SELECT * FROM dbo.cart WHERE stock_id = ? ORDER BY cart_id DESC";
+            $params = array($_SESSION['stock']);
+            $allOrders = sqlsrv_query( $conn, $sqlReadAllOrders, $params);
+        ?>
+        <div class="row">
             <div class="col-md-12">
                 <section class="right">
                     <table class="table">
@@ -72,6 +72,7 @@
                     </table>
                 </section>
             </div>
+        
         </div>
     </div>
 </main>

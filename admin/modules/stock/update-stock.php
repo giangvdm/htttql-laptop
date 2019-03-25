@@ -1,7 +1,7 @@
 <?php
     require "../config/connection.php";
 
-    $sqlReadStockById = "SELECT * FROM dbo.stock WHERE brand_id = ?";
+    $sqlReadStockById = "SELECT * FROM dbo.stock WHERE stock_id = ?";
     $params = array($_GET['id']);
     $stmt = sqlsrv_query( $conn, $sqlReadStockById, $params);
     $stock = sqlsrv_fetch_array($stmt);

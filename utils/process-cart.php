@@ -88,27 +88,36 @@
             $lastRow = sqlsrv_fetch_array($st);
             // and add it to the order list
             array_push($arrOrderId, $lastRow['cart_id']);
-        }
 
-        // insert N records to dbo.cart_detail (N = number of products in cart)
-        for ($i = 0; $i < count($_SESSION['product-in-cart']); $i++) {
-            // get stock by product id
-            $sqlReadProductStockById = "SELECT stock_id FROM dbo.product WHERE product_id = ?";
-            $params = array($_SESSION['product-in-cart'][$i]);
-            $stmt = sqlsrv_query( $conn, $sqlReadProductStockById, $params);
-            $stock = sqlsrv_fetch_array($stmt);
-
-            // find the index where product's stock is located in $arrStockId
-            $j = array_search($stock['stock_id'], $arrStockId);
-            $currentOrder = $arrOrderId[$j]; // remember that  $arrOrderId maps with $arrStockId
-
-            $sqlInsertOrderDetail = "INSERT INTO dbo.cart_detail (cart_id, product_id, cd_quantity, cd_price) VALUES (?,?,?,?)";
-            $paramsInsertOrderDetail = array($currentOrder, $_SESSION['product-in-cart'][$i], $_SESSION['product-quantity'][$i], $_SESSION['product-subtotal'][$i]);
-            $ins = sqlsrv_query( $conn, $sqlInsertOrderDetail, $paramsInsertOrderDetail);
-            if ($ins === false) {
-                die(print_r(sqlsrv_errors(), true));
+            for ($i = 0; $i < count($_SESSION['product-in-cart']); $i++) {              
+                $sqlInsertOrderDetail = "INSERT INTO dbo.cart_detail (cart_id, product_id, cd_quantity, cd_price) VALUES (?,?,?,?)";
+                $paramsInsertOrderDetail = array($lastRow['cart_id'], $_SESSION['product-in-cart'][$i], $_SESSION['product-quantity'][$i], $_SESSION['product-subtotal'][$i]);
+                $ins = sqlsrv_query( $conn, $sqlInsertOrderDetail, $paramsInsertOrderDetail);
+                if ($ins === false) {
+                    die(print_r(sqlsrv_errors(), true));
+                }
             }
         }
+
+        // // insert N records to dbo.cart_detail (N = number of products in cart)
+        // for ($i = 0; $i < count($_SESSION['product-in-cart']); $i++) {
+        //     // get stock by product id
+        //     $sqlReadProductStockById = "SELECT stock_id FROM dbo.product WHERE product_id = ?";
+        //     $params = array($_SESSION['product-in-cart'][$i]);
+        //     $stmt = sqlsrv_query( $conn, $sqlReadProductStockById, $params);
+        //     $stock = sqlsrv_fetch_array($stmt);
+
+        //     // find the index where product's stock is located in $arrStockId
+        //     $j = array_search($stock['stock_id'], $arrStockId);
+        //     $currentOrder = $arrOrderId[$j]; // remember that  $arrOrderId maps with $arrStockId
+
+        //     $sqlInsertOrderDetail = "INSERT INTO dbo.cart_detail (cart_id, product_id, cd_quantity, cd_price) VALUES (?,?,?,?)";
+        //     $paramsInsertOrderDetail = array($currentOrder, $_SESSION['product-in-cart'][$i], $_SESSION['product-quantity'][$i], $_SESSION['product-subtotal'][$i]);
+        //     $ins = sqlsrv_query( $conn, $sqlInsertOrderDetail, $paramsInsertOrderDetail);
+        //     if ($ins === false) {
+        //         die(print_r(sqlsrv_errors(), true));
+        //     }
+        // }
 
         // update product quantity
         foreach ($_SESSION['product-in-cart'] as $index => $productId) {
