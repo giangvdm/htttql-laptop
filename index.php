@@ -146,8 +146,8 @@
 					<div class="avds_large_container">
 						<div class="avds_large_content">
 							<div class="avds_title">Laptop chuyên nghiệp</div>
-							<div class="avds_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed
-								nec molestie eros. Sed viver ra velit venenatis fermentum luctus.</div>
+							<!-- <div class="avds_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed
+								nec molestie eros. Sed viver ra velit venenatis fermentum luctus.</div> -->
 							<div class="avds_link avds_link_large"><a href="product-list.php?category=business&brand=Dell">Xem thêm</a></div>
 						</div>
 					</div>
@@ -258,7 +258,7 @@
 							<div class="avds_xl_background" style="background-image:url(images/avds_xl.jpg)"></div>
 							<div class="avds_xl_content">
 								<div class="avds_title">Chất lượng tuyệt vời</div>
-								<div class="avds_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus.</div>
+								<!-- <div class="avds_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus.</div> -->
 								<div class="avds_link avds_xl_link"><a href="categories.html">See More</a></div>
 							</div>
 						</div>
@@ -269,6 +269,25 @@
 
 		<!-- Commitments -->
 		<?php include('webpage-components/commitment.php'); ?>
+
+		<!-- Testimonials -->
+		<div class="avds">
+			<div class="avds_container d-flex flex-lg-row flex-column align-items-start justify-content-between">
+				<div class="avds_small">
+					<div class="avds_background" style="background-image:url(images/vkman.jpg); background-position: 50% 27.5%;"></div>
+				</div>
+				<div class="avds_large">
+					<div class="avds_large_content" style="max-width: 100% !important; height: 75% !important; padding-right: 30px !important;">
+						<div class="avds_title">Khách hàng của chúng tôi nói gì?</div>
+						<div class="avds_text">
+							<blockquote>Sản phẩm laptop tại Laptop 69 có chất lượng rất cao, tôi đã tin dùng từ những năm 90.</blockquote>
+						</div>
+						<div class="avds_link avds_link_large"><a href="#">Xem thêm</a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br><br>
 
 		<!-- Newsletter -->
 		<?php include('webpage-components/newsletter.php'); ?>

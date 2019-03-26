@@ -10,7 +10,10 @@
     <title>Trang quản lý - Hệ thống Kinh doanh Máy tính xách tay</title>
     <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/chart.js/dist/Chart.min.css">
     <link rel="stylesheet" href="src/css/main.css">
+    <script src="../node_modules/chart.js/dist/Chart.min.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
 </head>
 
 <body>
