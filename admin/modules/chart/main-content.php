@@ -6,7 +6,7 @@
     if (isset($_GET['to'])) $toDate = $_GET['to'];
 ?>
 
-<main id="main" data-page-content="order">
+<main id="main" data-page-content="chart">
     <div class="container">
         <?php
             // Alert boxes

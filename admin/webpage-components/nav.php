@@ -8,7 +8,7 @@
     $currentStock = sqlsrv_fetch_array($stmt);
 ?>
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" id="nav">
-    <a class="navbar-brand" href="index.php?manage=home">Trang chủ</a>
+    <a class="navbar-brand" href="index.php?manage=chart">Trang chủ</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
